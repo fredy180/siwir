@@ -1,0 +1,70 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Author     : Ingeniero Jean C
+*/
+
+.pestaña1{
+    padding: 10px 66px 10px 38px;
+    width: 10%;
+    min-width: 90px;
+    float: left;
+    margin-top:5px;
+    margin-left: 3px;
+    border-radius: 20px;
+    border-bottom:solid red 3px;
+    border-left: solid red 3px;
+    background: #3B4ED8;
+    border-radius: 10px;
+   
+}
+
+.pestaña2{
+    padding: 10px 66px 10px 38px;
+    width: 10%;
+    min-width: 90px;
+    float: left;
+    
+    margin-top: 5px;
+    margin-left: 3px;
+    border-radius: 20px;
+    border-bottom:solid red 3px;
+    border-left: solid red 3px;
+    background: #3B4ED8;
+    border-radius: 10px;
+    
+}
+
+.pestaña3{
+    padding: 10px 66px 10px 38px;
+    width: 10%;
+    min-width: 90px;
+    float: left;
+    margin-top:5px;
+    margin-left: 3px;
+    border-bottom:solid red 3px;
+    border-left: solid red 3px;
+    background: #3B4ED8;
+    border-radius:10px;
+    
+   
+}
+.pestaña4{
+    padding: 10px 66px 10px 38px;
+    width: 10%;
+    min-width: 90px;
+    float: left;
+    margin-top:5px;
+    margin-left: 3px;
+    margin-right:3px; 
+    border-radius: 20px;
+    border-bottom:solid red 3px;
+    border-left: solid red 3px;
+    background: #3B4ED8;
+    border-radius: 10px;
+    
+   
+}

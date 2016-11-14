@@ -1,0 +1,97 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10/09/2016, 10:17:18 PM
+    Author     : Ingeniero Jean C
+*/
+body{
+    padding: 0px;
+    width: 100%;
+    
+    min-width: 805px;;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+.contenidoh1{
+    border-bottom: 0px;
+}
+
+
+
+img, h1{
+    float: left;
+}
+h1{
+    border-bottom: 3px solid;
+
+}
+
+.h3{
+    position: absolute;
+    top: 50px;
+    left: 200px;
+}
+
+.parrafo1{
+    width: 400px;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+
+}
+
+embed{
+    width: 600px;
+}
+
+.imgContenido{
+    float: left;
+}
+#Contenedor{
+    margin-top: 0px; 
+    margin-right: auto; 
+    margin-bottom: 0px; 
+    margin-left: auto; 
+    width: 100%;
+    height: 700px;
+    background: white;
+}
+.cabecera{
+    width: 100%;
+    height: 100px;
+    background: #2980b9;
+
+}
+.layoutPestaña{
+    margin-top: 3px;
+    width: 100%;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background:#9BCAEA;
+}
+.contenido{
+    margin: 1px;
+    width: 100%;
+    height: 979px;
+    margin-left: auto;
+    margin-right: auto;
+    background:#C5E1EA;
+}
+
+.piePagina{
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    clear:left;
+    bottom: 0px;
+    background: #2980b9;
+    
+}

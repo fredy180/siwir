@@ -1,0 +1,110 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/11/2016, 11:09:10 AM
+    Author     : Ingeniero Jean C
+*/
+
+.h1{
+    color: white;
+}
+body{
+    padding: 0px;
+    width: 100%;
+    min-width: 1349px;;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+.contenidoh1{
+    border-bottom: 0px;
+
+}
+img, h1{
+    float: left;
+}
+h1{
+    border-bottom: 3px solid;
+}
+
+.h3{
+    clear: both;
+    top: 50px;
+    left: 200px;
+}
+
+.parrafo1{
+    width: 600px;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+
+}
+.imgContenido{
+    float: left;
+}
+#Contenedor{
+    margin-top: 0px; 
+    margin-right: auto; 
+    margin-bottom: 0px; 
+    margin-left: auto; 
+    height: 700px;
+
+}
+
+.cabecera{
+    width: 100%;
+    height: 100px;
+    background: #0B486B;
+
+}
+
+.layoutIzquierda{
+    margin-top: 3px;
+    width: 250px;
+    height: 670px;
+    float: left;
+    clear: left;
+    background: #3B8686;
+
+}
+
+.layoutDerecha{
+    margin-top: 3px;
+    width:250px;
+    height: 670px;
+    float: right;
+    background: #3B8686;
+}
+
+.contenido{
+    margin-top: 3px;
+    width: 62.5%;
+    min-width:60%;
+    height: 670px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #A8DBA8;
+}
+.piePagina{
+
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    clear:both;
+    bottom: 0px;
+    background: #0B486B;
+
+}
+
+h5{
+    color: white;
+}
+
+
