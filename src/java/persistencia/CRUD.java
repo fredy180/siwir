@@ -8,7 +8,7 @@ package persistencia;
 import ComponentesBD.conector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.SQLException; 
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,7 +64,7 @@ public class CRUD {
             if (rs.next()) {
 //                JOptionPane.showMessageDialog(null, "Proyecto Ya esta registrado");
             } else {
-                System.out.println("-----------------wwr-rrw--------------------");
+                
                 PreparedStatement p = Sentencias.InsertarNuevoIngeniero();
                 p.setInt(1, cedula);
                 p.setString(2, nombres);

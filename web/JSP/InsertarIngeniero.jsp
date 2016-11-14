@@ -20,7 +20,7 @@
             String apellidos = "";
             String telefono = "";
             String direccion = "";
- //hola a todos
+
             cedula = Integer.parseInt(request.getParameter("cedula"));
             nombres =request.getParameter("nombres");
             apellidos =request.getParameter("apellidos");
