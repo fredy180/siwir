@@ -18,7 +18,7 @@
         <%
             String cliente = "";
             String direccion = "";
-            String telefono = "";
+            String telefono = ""; 
             String email = "";
             String nombreProyecto = "";
 
