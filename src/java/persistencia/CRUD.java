@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 public class CRUD {   
     
     public boolean insertarNuevoProyecto(String cliente, String direccion, String telefono, String mail, String nombreProyecto){ 
+       boolean exito=false;
         try {
             Statement st = conector.getConexion().createStatement();
             ResultSet rs = st.executeQuery("select nombreProyecto FROM  datosproyectos where nombreProyecto='" + nombreProyecto + "'");
@@ -34,15 +35,14 @@ public class CRUD {
                 p.setString(5, nombreProyecto); 
                 int m = p.executeUpdate();
                 if (m > 0) {
+                    exito=true;
                 }
            }
         } catch (Exception ex) {
 //            JOptionPane.showMessageDialog(null, "Nose Pueden Registrar Proyecto");
         }        
-       return true; 
+       return exito; 
     }
-    
-    
     public ResultSet consultaProyectos(){
         Statement st=null;
         ResultSet rs=null;
@@ -54,8 +54,6 @@ public class CRUD {
         }
         return rs;
     }
-      
-    
      public boolean insertarNuevoIngeneiro(int cedula ,String nombres, String apellidos, String telefono, String direccion){ 
         boolean exito=false;
          try {
