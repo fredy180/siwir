@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Proyecto Final SIWIR</title>
-        
+   nlacjx discipulojskansdkasnds 
         <link rel="stylesheet" type="text/css" href="CSS/EstiloSesion.css">
         <link rel="stylesheet" type="text/css" href="CSS/pestaña.css" media="screen and (min-width: 900px)">
         <link rel="stylesheet" type="text/css" href="CSS/great.css" media="screen and (min-width: 900px)">
