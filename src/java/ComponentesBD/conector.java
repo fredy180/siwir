@@ -28,9 +28,10 @@ public class conector {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             String url = "jdbc:mysql://" + servidorNombre + "/" + nombreBD;
             conexion = DriverManager.getConnection(url, usuario, password);
-            System.out.println("Conexion exitosa");
+            System.out.println("---Conexion exitosa--");
 
         } catch (Exception e) {
+            System.out.println("Error al conectar con BD");
         }
         return conexion;
     }
