@@ -11,13 +11,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro Proyecto</title>
         
-        <link rel="stylesheet" type="text/css" href="../CSS/base.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/pestaña.css" media="screen and (min-width: 900px)">
-        <link rel="stylesheet" type="text/css" href="../CSS/great.css" media="screen and (min-width: 900px)">
-        <link rel="stylesheet" type="text/css" href="../CSS/pestañaMedio.css" media="screen and (min-width: 480px) and (max-width: 900px)">
-        <link rel="stylesheet" type="text/css" href="../CSS/medium.css" media="screen and (min-width: 480px) and (max-width: 900px)">
-        <link rel="stylesheet" type="text/css" href="../CSS/medium.css" media="screen and (min-width: 480px) and (max-width: 900px)">
-        <link rel="stylesheet" type="text/css" href="../CSS/mini.css" media="screen and (max-width: 480px)">
+        <link rel="stylesheet" type="text/css" href="../../CSS/base.css">
+        <link rel="stylesheet" type="text/css" href="../../CSS/pestaña.css" media="screen and (min-width: 900px)">
+        <link rel="stylesheet" type="text/css" href="../../CSS/great.css" media="screen and (min-width: 900px)">
+        <link rel="stylesheet" type="text/css" href="../../CSS/pestañaMedio.css" media="screen and (min-width: 480px) and (max-width: 900px)">
+        <link rel="stylesheet" type="text/css" href="../../CSS/medium.css" media="screen and (min-width: 480px) and (max-width: 900px)">
+        <link rel="stylesheet" type="text/css" href="../../CSS/medium.css" media="screen and (min-width: 480px) and (max-width: 900px)">
+        <link rel="stylesheet" type="text/css" href="../../CSS/mini.css" media="screen and (max-width: 480px)">
     </head>
     <body>
         
@@ -25,7 +25,7 @@
 
             <div class="cabecera">
 
-                <div  class="h1"> <h1>Sistema de Informacion SIWIR </h1></div>
+                <div  class="h1"> <h1>Sistema de Informacion (SIWIR) </h1></div>
                 <div class="h3"><h3>Ingeniria del sofware</h3></div>
 
 
@@ -33,8 +33,8 @@
 
             <div class="layoutIzquierda">
                 <a  href="PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos Registrado</center></h3> </a>
-                <a  href="#"> <h3 class="pestaña2"><center>Actualizar Proyecto</center> </h3> </a>
-                <a  href="#" > <h3 class="pestaña3"><center>Eliminar Proyecto</center></h3> </a>
+                <a  href="../FaseElicitacion/PrincipalElicitacion.jsp" > <h3  class="pestaña1"><center>Fase Elicitacion</center></h3> </a>
+                
                 
             </div>
 
@@ -43,7 +43,7 @@
             <div class="contenido">
 
                 <h1 class="contenidoh1"> Registrar Proyecto</h1> </br> </br> </br>
-                <form action="../insertar.jsp" method="get">
+                <form action="insertar.jsp" method="get">
                     <p>
                         <label class="izq" for="nombreCliente">Nombre Cliente: </label>
                         <input class="der" type="text" name="nombreCliente" id="cliente">
@@ -70,7 +70,7 @@
                     </p>
                     <br>
                     <p>
-                        <input type="submit" value=" Registrar ">
+                        <input type="submit" value=" Registrar " >
                         <input type="reset" value="Limpiar">
                     </p>
 

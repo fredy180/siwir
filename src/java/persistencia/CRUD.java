@@ -39,7 +39,6 @@ public class CRUD {
                 }
            }
         } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, "Nose Pueden Registrar Proyecto");
         }        
        return exito; 
     }
@@ -54,6 +53,17 @@ public class CRUD {
         }
         return rs;
     }
+    public ResultSet consultaProyecto(String nombre){
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st = conector.getConexion().createStatement();
+            rs = st.executeQuery("select  * FROM  datosproyectos where nombreProyecto ='"+nombre+"';");           
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
      public boolean insertarNuevoIngeneiro(int cedula ,String nombres, String apellidos, String telefono, String direccion){ 
         boolean exito=false;
          try {
@@ -61,8 +71,7 @@ public class CRUD {
             ResultSet rs = st.executeQuery("select cedula FROM  ingenieros where cedula='" + cedula + "'");
             if (rs.next()) {
 //                JOptionPane.showMessageDialog(null, "Proyecto Ya esta registrado");
-            } else {
-                
+            } else {                
                 PreparedStatement p = Sentencias.InsertarNuevoIngeniero();
                 p.setInt(1, cedula);
                 p.setString(2, nombres);
@@ -79,5 +88,125 @@ public class CRUD {
         }        
        return exito; 
     }
-    
+     public ResultSet consultarIngenieros(){
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st = conector.getConexion().createStatement();
+             rs = st.executeQuery("select *FROM  ingenieros ;");           
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+     public ResultSet consultaIngeniero(int cedula){
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st = conector.getConexion().createStatement();
+             rs = st.executeQuery("select * FROM  ingenieros where cedula='"+cedula+"';");           
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+     
+     
+     public ResultSet consultaIngenieroPorFases(String  fase){
+        Statement st=null;
+        ResultSet rs=null;
+        try {
+            st = conector.getConexion().createStatement();
+             rs = st.executeQuery("select nombres, apellidos,cedula FROM  responsablesfases r, ingenieros i where fase='"+fase+"'" +
+                    "and r.Ingenieros_cedula = i.cedula;");           
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+     
+    public  boolean actualizarProyecto(String nombreCliente, String direccion, String telefon, String Email,String nuevoNombre, String ateriorNombre){
+        boolean registro=false;
+        
+        String sql="UPDATE datosproyectos SET cliente='"+nombreCliente+"' ,direccion='"+direccion+"',"
+                + " telefono='"+telefon+"',e_Mail='"+Email+"' ,nombreProyecto='"+nuevoNombre+"'"
+                + " WHERE nombreProyecto='" +ateriorNombre+"';";
+        
+                PreparedStatement ps;
+                try {
+                    ps = conector.getConexion().prepareStatement(sql);
+                    int p= ps.executeUpdate();
+                    if(p>0){
+                        registro=true;
+                        
+                    }
+                } catch (SQLException ex) {
+                   
+                    
+                }
+        
+        
+        return registro;
+    }
+    public  boolean actualizarIngeniero(int nuevaCedula, int cedulaAnterior, String nombres, String apellidos, String telefono,String direccion){
+        boolean registro=false;
+        
+        String sql="UPDATE ingenieros SET cedula='"+nuevaCedula+"' ,nombres='"+nombres+"',"
+                + " apellidos='"+apellidos+"',telefono='"+telefono+"' ,direccion='"+direccion+"'"
+                + " WHERE cedula='" +cedulaAnterior+"';";
+        
+                PreparedStatement ps;
+                try {
+                    ps = conector.getConexion().prepareStatement(sql);
+                    int p= ps.executeUpdate();
+                    if(p>0){
+                        registro=true;
+                        
+                    }
+                } catch (SQLException ex) {
+                   
+                    
+                }
+        
+        
+        return registro;
+    }
+    public boolean eliminarProyecto(String nombre){
+       boolean eliminado=false;
+       String sql="DELETE  from datosproyectos where nombreProyecto ='"+nombre+"';";
+       PreparedStatement ps;
+                try {
+                    ps = conector.getConexion().prepareStatement(sql);
+                    int p= ps.executeUpdate();
+                    if(p>0){
+                        eliminado=true;
+                        
+                    }
+                } catch (SQLException ex) {
+                   
+                    
+                }
+       
+       return eliminado;
+        
+    }
+    public boolean eliminarIngeniero(int cedula){
+       boolean eliminado=false;
+       String sql="DELETE  from ingenieros where cedula ='"+cedula+"';";
+       PreparedStatement ps;
+                try {
+                    ps = conector.getConexion().prepareStatement(sql);
+                    int p= ps.executeUpdate();
+                    if(p>0){
+                        eliminado=true;
+                        
+                    }
+                } catch (SQLException ex) {
+                   
+                    
+                }
+       
+       return eliminado;
+        
+    }
 }

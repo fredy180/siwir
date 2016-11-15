@@ -12,11 +12,12 @@ import java.sql.PreparedStatement;
  *
  * @author Ingeniero Jean C
  */
-public class Sentencias {
+public class Sentencias { 
 //    Coconexion = Singleto.getConexion("localhost", "mydb","root","root"); 
 
     private static PreparedStatement insertarDatoProyecto = null;
      private static PreparedStatement insertarDatoIngeneiro = null;
+     private static PreparedStatement insertarDatoIlicitacion = null;
 
     public static PreparedStatement InsertarNuevoProyecto() throws Exception {
         if (insertarDatoProyecto == null) {
@@ -24,7 +25,6 @@ public class Sentencias {
                     + " INTO datosproyectos(cliente,direccion,telefono,"
                     + "e_Mail,nombreProyecto)VALUES (?,?,?,?,?)");
         }
-
         return insertarDatoProyecto;
     }
     public static PreparedStatement InsertarNuevoIngeniero() throws Exception {
@@ -36,6 +36,18 @@ public class Sentencias {
         }
 
         return insertarDatoIngeneiro;
+    }
+    
+    public static PreparedStatement getInsertarNuevaElicitacion() throws Exception {
+        if (insertarDatoIlicitacion == null) {
+            
+            insertarDatoIlicitacion = conector.getConexion().prepareStatement("INSERT"
+                    + " INTO elicitacion(responsablesFases_datosProyectos_nombreProyectoggnhh,tecnica,fecha,"
+                    + "instrumento,responsablesFases_Ingenieros_cedula,resultado)"
+                    + "VALUES (?,?,?,?,?,?)");
+        }
+
+        return insertarDatoIlicitacion;
     }
 
 }

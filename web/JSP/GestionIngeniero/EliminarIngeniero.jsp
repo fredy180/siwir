@@ -1,8 +1,9 @@
 <%-- 
-    Document   : EliminarProyecto
-    Created on : 14/11/2016, 12:23:52 PM
-    Author     : Ingeniero Jean C
+    Document   : EliminarIngeniero
+    Created on : 14/11/2016, 05:27:15 PM
+    Author     : freddy
 --%>
+
 <%@page import="ComponentesBD.variablesGlobales"%>
 <%@page import="persistencia.CRUD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,13 +11,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Eliminar Proyecto</title>
+        <title>JSP Page</title>
     </head>
     <body>
-
         <%
             CRUD crud = new CRUD();
-           boolean eliminado= crud.eliminarProyecto(variablesGlobales.getProyecto());
+           boolean eliminado= crud.eliminarIngeniero(variablesGlobales.getIdIngeniero());
       if (eliminado) {
                 out.print("Registro exitoso");
                 out.print("<hr>");

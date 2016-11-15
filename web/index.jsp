@@ -11,8 +11,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Proyecto Final SIWIR</title>
-   lklkñfklsdkfsdfdslfsdknfdsfnlsndfd
-        <link rel="stylesheet" type="text/css" href="CSS/EstiloSesion.css">
+ 
+        <link rel="stylesheet" type="text/css" href="CSS/estiloSesion.css">
         <link rel="stylesheet" type="text/css" href="CSS/pestaña.css" media="screen and (min-width: 900px)">
         <link rel="stylesheet" type="text/css" href="CSS/great.css" media="screen and (min-width: 900px)">
         <link rel="stylesheet" type="text/css" href="CSS/pestañaMedio.css" media="screen and (min-width: 480px) and (max-width: 900px)">
@@ -25,7 +25,7 @@
             conector.ConectarMySQL("localhost", "bd_siwir", "root", "root");
             %>
         <div>
-            <form action="html/PrincipalProyectos.jsp" method="get">
+            <form action="JSP/GestionProyecto/PrincipalProyectos.jsp" method="get">
                 <caption><h2> <center>Iniciar Sesion </center> </h2></caption>
                 <p>
                     <br>
