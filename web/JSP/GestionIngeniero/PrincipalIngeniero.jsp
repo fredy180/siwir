@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro Ingeniero</title>
-        
+
         <link rel="stylesheet" type="text/css" href="../../CSS/base.css">
         <link rel="stylesheet" type="text/css" href="../../CSS/pestaña.css" media="screen and (min-width: 900px)">
         <link rel="stylesheet" type="text/css" href="../../CSS/great.css" media="screen and (min-width: 900px)">
@@ -20,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="../../CSS/mini.css" media="screen and (max-width: 480px)">
     </head>
     <body>
-        
+
         <div id="Contenedor">
 
             <div class="cabecera">
@@ -34,8 +34,8 @@
             <div class="layoutIzquierda">
                 <a  href="../GestionProyecto/PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos</center></h3> </a>
                 <a  href="ListarIngeniero.jsp"> <h3 class="pestaña2"><center>Listar Ingenieros</center> </h3> </a>
-                
-                
+
+
             </div>
 
             <div class="layoutDerecha"></div>
@@ -50,37 +50,45 @@
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="nombre" >Nombre: </label>
-                        <input class="der" type="text" name="nombres" id="nombre">
+                        <label class="izq" for="nombres" >Nombre: </label>
+                        <input class="der" type="text" name="nombres" id="nombres">
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="apellido">Apellidos: </label>
-                        <input class="der" type="text" name="apellidos" id="apellido">
+                        <label class="izq" for="apellidos">Apellidos: </label>
+                        <input class="der" type="text" name="apellidos" id="apellidos">
                     </p>
                     <br>
                     <p>
                         <label class="izq" for="telefono">Telefono: </label>
                         <input class="der" type="text" name="telefono" id="telefono">
                     </p>
-                    
+
                     <br>
                     <p>
-                        <label class="izq" for="telefono">Direccion </label>
+                        <label class="izq" for="direccion">Direccion: </label>
                         <input class="der" type="text" name="direccion" id="telefono">
                     </p>
-                    
-                    <br>                  
-                    
+                    <br>
+                    <p>
+                        <label class="izq" for="correo">Correo; </label>
+                        <input class="der" type="email" name="correo" id="correo">
+                    </p>
+                    <br>
+                    <p>
+                        <label class="izq" for="Contraseña">Contraseña :</label>
+                        <input class="der" type="password" name="password" id="password">
+                    </p>
+                    <br> 
                     <p>
                         <input type="submit" value=" Registrar ">
                         <input type="reset" value="Limpiar">
                     </p>
 
                 </form> 
-                
-                
-                
+
+
+
             </div>
 
             <div class="piePagina">

@@ -1,6 +1,6 @@
 <%-- 
     Document   : index
-    Created on : 12/11/2016, 12:20:53 PM
+    Created on : 12/11/2016, 4:20:53 PM
     Author     : Ingeniero Jean C
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registro Proyecto</title>
+        <title>Registro Falses</title>
 
         <link rel="stylesheet" type="text/css" href="../../CSS/base.css">
         <link rel="stylesheet" type="text/css" href="../../CSS/pestaña.css" media="screen and (min-width: 900px)">
@@ -32,8 +32,8 @@
             </div>
 
             <div class="layoutIzquierda">
-                <a  href="PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos Registrado</center></h3> </a>
-                <a  href="../FaseElicitacion/PrincipalElicitacion.jsp" > <h3  class="pestaña1"><center>Fase Elicitacion</center></h3> </a>
+                <a  href="../GestionProyecto/PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos</center></h3> </a>
+                <a  href="ListarIngeniero.jsp"> <h3 class="pestaña2"><center>Listar Ingenieros</center> </h3> </a>
 
 
             </div>
@@ -42,53 +42,46 @@
 
             <div class="contenido">
 
-                <h1 class="contenidoh1"> Registrar Proyecto</h1> </br> </br> </br>
-                <form action="insertar.jsp" method="get">
+                <h1 class="contenidoh1"> Registrar Ingeniero</h1> </br> </br> </br>
+                <form action="InsertarIngeniero.jsp" method="get">
                     <p>
-                        <label class="izq" for="Nombre Proyecto">Nombre Proyecto: </label>
-                        <input class="der" type="text" name="nombreProyecto" id="nombreProyecto">
-                    </p> 
-                    <br>
-                    <p>
-                        <label class="izq" for="Cliente">Cliente </label>
-                        <input class="der" type="text" name="cliente" id="cliente">
+                        <label class="izq" for="cedula" >Cedula: </label>
+                        <input class="der" type="text" name="cedula" id="cedula" >
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="Direccion">Direccion </label>
-                        <input class="der" type="text" name="direccion" id="direccion">
+                        <label class="izq" for="nombres" >Nombre: </label>
+                        <input class="der" type="text" name="nombres" id="nombres">
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="Telefono">Telefono </label>
+                        <label class="izq" for="apellidos">Apellidos: </label>
+                        <input class="der" type="text" name="apellidos" id="apellidos">
+                    </p>
+                    <br>
+                    <p>
+                        <label class="izq" for="telefono">Telefono: </label>
                         <input class="der" type="text" name="telefono" id="telefono">
                     </p>
+
                     <br>
                     <p>
-                        <label class="izq" for="Correo">Correo: </label>
+                        <label class="izq" for="direccion">Direccion: </label>
+                        <input class="der" type="text" name="direccion" id="telefono">
+                    </p>
+                    <br>
+                    <p>
+                        <label class="izq" for="correo">Correo; </label>
                         <input class="der" type="email" name="correo" id="correo">
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="fecha Inicio">fecha Inicio: </label>
-                        <input class="der" type="date" name="fechaInicio" id="fechaInicio">
+                        <label class="izq" for="Contraseña">Contraseña :</label>
+                        <input class="der" type="password" name="password" id="password">
                     </p>
-                    <br>
+                    <br> 
                     <p>
-                        <label class="izq" for="fecha Fin">fecha Fin: </label>
-                        <input class="der" type="date" value="" name="fechaFin" id="fechaFin">
-                    </p>
-                    <br>
-                    <p>
-                        <label class="izq" for="Estado">Estado: </label>
-                        <br>
-                        <input type="radio" name="estado" value="0" checked="true"> En proceso<br>
-                        <input type="radio" name="estado" value="1"> Finalizado<br>                       
-                 
-                    </p>
-                    <br>
-                    <p>
-                        <input type="submit" value=" Registrar " >
+                        <input type="submit" value=" Registrar ">
                         <input type="reset" value="Limpiar">
                     </p>
 

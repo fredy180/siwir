@@ -22,8 +22,9 @@ public class Sentencias {
     public static PreparedStatement InsertarNuevoProyecto() throws Exception {
         if (insertarDatoProyecto == null) {
             insertarDatoProyecto = conector.getConexion().prepareStatement("INSERT"
-                    + " INTO datosproyectos(cliente,direccion,telefono,"
-                    + "e_Mail,nombreProyecto)VALUES (?,?,?,?,?)");
+                    + " INTO datosproyectos(nombreProyecto,cliente,direccion,"
+                    + "telefono,correo,fechaInicio,fechaFin,finalizado)VALUES"
+                    + " (?,?,?,?,?,?,?,?)");
         }
         return insertarDatoProyecto;
     }
@@ -32,7 +33,7 @@ public class Sentencias {
             System.out.println("ertetertertretertretertertertret");
             insertarDatoIngeneiro = conector.getConexion().prepareStatement("INSERT"
                     + " INTO ingenieros(cedula,nombres,apellidos,"
-                    + "telefono,direccion)VALUES (?,?,?,?,?)");
+                    + "telefono,direccion,correo,password)VALUES (?,?,?,?,?,?,?)");
         }
 
         return insertarDatoIngeneiro;

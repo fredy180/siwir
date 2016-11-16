@@ -9,11 +9,15 @@
 <%@page import="ComponentesBD.variablesGlobales"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%! String cliente = "" ;
-                    String direccion = "";
-                    String telefono = "";
-                    String email = ""; 
- String nombreProyecto;
+<%!
+    String nombreProyecto = "";
+    String cliente = "";
+    String direccion = "";
+    String telefono = "";
+    String correo = "";
+    String fechaInicio = "";
+    String fechaFin = "";
+    boolean finalizado;
 %>
 <script type="text/javascript">
     function enviar(destino) {
@@ -54,9 +58,9 @@
 
             <div class="layoutIzquierda">
                 <a  href="PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos Registrado</center></h3> </a>
-                <a  href="../FaseElicitacion/PrincipalElicitacion.jsp" > <h3  class="pestaña1"><center>Fase Elicitacion</center></h3> </a>
+                <a  href="../fases/registroFase.jsp" > <h3  class="pestaña1"><center>Crear Fases</center></h3> </a>
                 
-                
+
 
             </div>
 
@@ -67,49 +71,69 @@
                     nombreProyecto = request.getParameter("idProyecto");
                     variablesGlobales.setNombreProyecto(nombreProyecto);
                     CRUD crud = new CRUD();
-                    ResultSet rs = crud.consultaProyecto(nombreProyecto);                    
-                    
-                    if(rs.next()){
-                        cliente=rs.getString(1);
-                        direccion=rs.getString(2);
-                        telefono=rs.getString(3);
-                        email  =rs.getString(4);
+                    ResultSet rs = crud.consultaProyecto(nombreProyecto);
+
+                    if (rs.next()) {
+                        cliente = rs.getString(2);
+                        direccion = rs.getString(3);
+                        telefono = rs.getString(4);
+                        correo = rs.getString(5);
+                        fechaInicio = rs.getString(6);
+                        fechaFin = rs.getString(7);
+                        finalizado = rs.getBoolean(8);
                     }
                 %>
                 <h1 class="contenidoh1"> Gestion Proyecto</h1> </br> </br> </br>
                 <form name="formulario" method="post">
                     <p>
-                        <label class="izq" for="nombreCliente">Nombre Cliente: </label>
-                        <input  <%="value='"+cliente+"'"%>  class="der" type="text" name="nombreCliente" id="cliente">
+                        <label class="izq" for="Nombre Proyecto">Nombre Proyecto: </label>
+                        <input class="der" value='<%=nombreProyecto %>' type="text" name="nombreProyecto" id="nombreProyecto">
+                    </p> 
+                    <br>
+                    <p>
+                        <label class="izq" for="Cliente">Cliente </label>
+                        <input class="der" value='<%=cliente %>'type="text" name="cliente" id="cliente">
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="direccion">Direccion: </label>
-                        <input  <%="value='"+direccion+"'"%> class="der" type="text" name="direccion" id="direccion">
+                        <label class="izq" for="Direccion">Direccion </label>
+                        <input class="der" value='<%=direccion %>'type="text" name="direccion" id="direccion">
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="telefono">Telefono: </label>
-                        <input  <%="value='"+telefono+"'"%> class="der" type="text" name="telefono" id="direccion">
+                        <label class="izq" for="Telefono">Telefono </label>
+                        <input class="der" value='<%=telefono %>' type="text" name="telefono" id="telefono">
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="e_Mail">E-Mail: </label>
-                        <input  <%="value='"+email+"'"%> class="der" type="text" name="e_Mail" id="e_Mail">
+                        <label class="izq" for="Correo">Correo: </label>
+                        <input class="der" value='<%=correo %>' type="email" name="correo" id="correo">
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="nombreProyecto">Nombre Proyecto: </label>
-                        <input  <%="value='"+nombreProyecto+"'"%> class="der" type="text" name="nombreProyecto" id="nombreProyecto">
+                        <label class="izq" for="fecha Inicio">fecha Inicio: </label>
+                        <input class="der"value='<%=fechaInicio %>' type="date" name="fechaInicio" id="fechaInicio">
                     </p>
                     <br>
                     <p>
-                        <input type="button" value=" Actualizar " onclick="enviar('ActualizarProyecto.jsp')">
-                        <input type="button" value="Eliminar" onclick="enviar('EliminarProyecto.jsp')">
-                        
-                    
+                        <label class="izq" for="fecha Fin">fecha Fin: </label>
+                        <input class="der" value='<%=fechaFin %>'type="date" value="" name="fechaFin" id="fechaFin">
+                    </p>
+                    <br>
+                    <p>
+                        <label class="izq" for="Estado">Estado: </label>
+                        <br>
+                        <input type="radio" name="estado" value="0" checked='<%=finalizado %>'> En proceso<br>
+                        <input type="radio" name="estado" value="1"> Finalizado<br>                       
 
-                        <input type="reset"  value="Limpiar">
+                    </p>
+                    <br>
+                    <input type="button" value=" Actualizar " onclick="enviar('ActualizarProyecto.jsp')">
+                    <input type="button" value="Eliminar" onclick="enviar('EliminarProyecto.jsp')">
+
+
+
+                    <input type="reset"  value="Limpiar">
                     </p>
 
                 </form> 

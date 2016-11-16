@@ -48,7 +48,7 @@
                 <h1 class="contenidoh1"> Listado Ingeniero</h1> </br> </br> </br>
 
                 <center> <table border="1">
-                        <tr><td><b>Nombre</b> </td> <td><b>Apellido</b> </td> <td><b>Telefono</b> </td> <td><b>Direccion</b> </td>  <td><b>Cedula</b> </td> </tr>
+                        <tr><td><b>Nombres</b> </td> <td><b>Apellidos</b> </td> <td><b>Telefono</b> </td> <td><b>Direccion</b> </td>  <td><b>Correo</b> </td> <td><b>Cedula</b> </td>  </tr>
 
 
                         <%
@@ -58,7 +58,7 @@
                             cadena = "";
                             while (rs.next()) {
                                 cadena = cadena + "<tr>" + "<td>" + rs.getString(2) + "</td>"
-                                        + "<td>" + rs.getString(3) + "<td>" + rs.getString(4) + "<td>" + rs.getString(5) + "</td>"
+                                        + "<td>" + rs.getString(3) + "<td>" + rs.getString(4) + "<td>" + rs.getString(5) + "</td>"+ "<td>" + rs.getString(6) + "</td>"
                                         + "</td>" + "</td>" + "<td><form action='PrincipalGestionIngeniero.jsp' method='get'>"
                                         + "<input class='izq'  type='text'  name='idIngeniero'value='" + rs.getString(1) + "'  ></input>"
                                         + "<input type='submit' value='editar '>"

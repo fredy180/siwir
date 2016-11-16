@@ -16,19 +16,26 @@
     </head>
     <body>
         <%
+            String nombreProyecto = "";
             String cliente = "";
             String direccion = "";
-            String telefono = ""; 
-            String email = "";
-            String nombreProyecto = "";
+            String telefono = "";
+            String correo = "";
+            String fechaInicio = "";
+            String fechaFin = "";
+            boolean finalizado;
 
-            cliente = request.getParameter("nombreCliente");
+            nombreProyecto = request.getParameter("nombreProyecto");
+            cliente = request.getParameter("cliente");
             direccion = request.getParameter("direccion");
             telefono = request.getParameter("telefono");
-            email = request.getParameter("e_Mail");
-            nombreProyecto = request.getParameter("nombreProyecto");
-      
-            boolean registro = bd.insertarNuevoProyecto(cliente, direccion, telefono, email, nombreProyecto);
+            correo = request.getParameter("correo");
+            fechaInicio = request.getParameter("fechaInicio");
+            fechaFin = request.getParameter("fechaFin");
+            finalizado = Boolean.parseBoolean(request.getParameter("estado"));
+                    ;
+           
+            boolean registro = bd.insertarNuevoProyecto(nombreProyecto, cliente, direccion, telefono, correo, fechaInicio, fechaFin, finalizado);
             if (registro) {
                 out.print("Registro exitoso");
                 out.print("<hr>");

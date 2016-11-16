@@ -15,24 +15,34 @@
     </head>
     <body>
         <%
-           int cedula ;
-            String nombres = "";
-            String apellidos = "";
-            String telefono = "";
+           String nombreProyecto = "";
+            String cliente = "";
             String direccion = "";
-
-            cedula = Integer.parseInt(request.getParameter("cedula"));
-            nombres =request.getParameter("nombres");
-            apellidos =request.getParameter("apellidos");
-            telefono= request.getParameter("telefono");
+            String telefono = "";
+            String correo = "";
+            String fechaInicio = "";
+            String fechaFin = "";
+            boolean finalizado;
+            
+            nombreProyecto = request.getParameter("nombreProyecto");
+            cliente = request.getParameter("cliente");
             direccion = request.getParameter("direccion");
+            telefono = request.getParameter("telefono");
+            correo = request.getParameter("correo");
+            fechaInicio = request.getParameter("fechaInicio");
+            fechaFin = request.getParameter("fechaFin");
+            finalizado = Boolean.parseBoolean(request.getParameter("estado"));
       
             CRUD bd = new CRUD();
-           boolean actualizado= bd.actualizarIngeniero(cedula, variablesGlobales.getIdIngeniero(), nombres, apellidos, telefono, direccion);
+           boolean actualizado= bd.actualizarProyecto(variablesGlobales.getProyecto(), 
+                   nombreProyecto, cliente, direccion, telefono, correo, fechaInicio, fechaFin, finalizado);
             if (actualizado) {
-                out.print("<a href='../../index.jsp'>Inicio</a>");
+                out.print("Registro exitoso");
+                out.print("<hr>");
+                out.print("<a href='index.jsp'>Inicio</a>");
             } else {
-                
+                out.print("Registro no exitoso");
+                out.print("<hr>");
                 out.print("<a href='index.jsp'>Inicio</a>");
             }
 
