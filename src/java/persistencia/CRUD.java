@@ -74,8 +74,9 @@ public class CRUD {
         return rs;
     }
 
-    public boolean insertarNuevoIngeneiro(int cedula, String nombres, String apellidos, String telefono, String direccion,String correo, String password) {
+    public boolean insertarNuevoIngeneiro(int cedula, String nombres, String apellidos, String telefono, String direccion,String correo,String tipoUsuario, String password) {
         boolean exito = false;
+       
         try {
             Statement st = conector.getConexion().createStatement();
             ResultSet rs = st.executeQuery("select cedula FROM  ingenieros where cedula='" + cedula + "'");
@@ -88,8 +89,9 @@ public class CRUD {
                 p.setString(3, apellidos);
                 p.setString(4, telefono);
                 p.setString(5, direccion);
-                p.setString(6, direccion);
-                p.setString(7, direccion);
+                p.setString(6, correo);
+                p.setString(7, tipoUsuario);
+                p.setString(8, password);
                 int m = p.executeUpdate();
                 if (m > 0) {
                     exito = true;
@@ -168,12 +170,12 @@ public class CRUD {
     }
 
     public boolean actualizarIngeniero(int nuevaCedula, int cedulaAnterior, String nombres, 
-            String apellidos, String telefono, String direccion,String correo, String password) {
+            String apellidos, String telefono, String direccion,String correo,String tipoUsuario, String password) {
         boolean registro = false;
 
         String sql = "UPDATE ingenieros SET cedula=" + nuevaCedula + " ,nombres='" + nombres + "',"
                 + " apellidos='" + apellidos + "',telefono='" + telefono + "' ,direccion='" + direccion + "'"
-                +" ,correo='" + correo + "'"+ " ,password='" + password + "'"
+                +" ,correo='" + correo + "'"+" ,tipoUsuario='" + tipoUsuario + "'"+" ,password='" + password + "'"
                 +" WHERE cedula='" + cedulaAnterior + "';";
         
         PreparedStatement ps;

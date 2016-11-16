@@ -21,6 +21,7 @@
             String telefono = "";
             String direccion = "";
             String correo;
+            String tipoUsuario;
             String password;
 
             cedula = Integer.parseInt(request.getParameter("cedula"));
@@ -29,8 +30,9 @@
             telefono = request.getParameter("telefono");
             direccion = request.getParameter("direccion");
             correo = request.getParameter("correo");
+            tipoUsuario = request.getParameter("tipoUsuario");
             password = request.getParameter("password");
-            boolean registro = bd.insertarNuevoIngeneiro(cedula, nombres, apellidos, telefono, direccion, correo, password);
+            boolean registro = bd.insertarNuevoIngeneiro(cedula, nombres, apellidos, telefono, direccion, correo,tipoUsuario, password);
             if (registro) {
                 out.print("Registro exitoso");
                 out.print("<hr>");

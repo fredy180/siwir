@@ -79,6 +79,15 @@
                         <label class="izq" for="Contraseña">Contraseña :</label>
                         <input class="der" type="password" name="password" id="password">
                     </p>
+                    <br>
+                    <p>
+                        <label class="izq" for="tipoUsuario">Tipo de usurio </label>
+                        <td><select name="tipoUsuario" class="der"  >'>
+                            <option value="Adminstrador" > Adminstrador</option>";
+                            <option value="Ingeniero" selected >Ingeniero</option>";
+                        </select>
+                    </p>
+                    
                     <br> 
                     <p>
                         <input type="submit" value=" Registrar ">

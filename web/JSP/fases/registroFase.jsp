@@ -42,46 +42,34 @@
 
             <div class="contenido">
 
-                <h1 class="contenidoh1"> Registrar Ingeniero</h1> </br> </br> </br>
+                <h1 class="contenidoh1"> Registrar Fases</h1> </br> </br> </br>
                 <form action="InsertarIngeniero.jsp" method="get">
+                    
+                    <br>
                     <p>
-                        <label class="izq" for="cedula" >Cedula: </label>
-                        <input class="der" type="text" name="cedula" id="cedula" >
+                        <label class="izq" for="fase">Fase: </label>
+                        <td><select name="fase" class="der"  >'>
+                            <option value="ELICITACION" selected> ELICITACION</option>";
+                             <option value="ESPESIFICACION"  >ESPESIFICACION</option>";
+                            <option value="ANALAIS" selected >ANALAIS</option>";
+                        </select>
+                    </p>
+                      <br>
+                    <p>
+                        <label class="izq" for="fechaInicio" >Fecha Inicio </label>
+                        <input class="der" type="date" name="fechaInicio" id="fechaInicio" >
                     </p>
                     <br>
                     <p>
-                        <label class="izq" for="nombres" >Nombre: </label>
-                        <input class="der" type="text" name="nombres" id="nombres">
+                        <label class="izq" for="fechaFin" >Fecha Fin </label>
+                        <input class="der" type="date" name="fechaFin" id="fechaFin" >
                     </p>
-                    <br>
+                    
+                   
+                    <br>                
+                   
                     <p>
-                        <label class="izq" for="apellidos">Apellidos: </label>
-                        <input class="der" type="text" name="apellidos" id="apellidos">
-                    </p>
-                    <br>
-                    <p>
-                        <label class="izq" for="telefono">Telefono: </label>
-                        <input class="der" type="text" name="telefono" id="telefono">
-                    </p>
-
-                    <br>
-                    <p>
-                        <label class="izq" for="direccion">Direccion: </label>
-                        <input class="der" type="text" name="direccion" id="telefono">
-                    </p>
-                    <br>
-                    <p>
-                        <label class="izq" for="correo">Correo; </label>
-                        <input class="der" type="email" name="correo" id="correo">
-                    </p>
-                    <br>
-                    <p>
-                        <label class="izq" for="Contraseña">Contraseña :</label>
-                        <input class="der" type="password" name="password" id="password">
-                    </p>
-                    <br> 
-                    <p>
-                        <input type="submit" value=" Registrar ">
+                        <input type="submit" value=" Guardar ">
                         <input type="reset" value="Limpiar">
                     </p>
 

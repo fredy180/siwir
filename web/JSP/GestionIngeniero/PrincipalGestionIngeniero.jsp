@@ -16,14 +16,16 @@
     String apellidos = "";
     String correo;
     String password;
+    String tipoUsuario;
     int idIngeniero;
+    String selecion = "";
 %>
 <script type="text/javascript">
     function enviar(destino) {
         document.formulario.action = destino;
         document.formulario.submit();
         // document.formulario.submit();
-        
+
     }
 
 
@@ -77,8 +79,12 @@
                         apellidos = rs.getString(3);
                         telefono = rs.getString(4);
                         direccion = rs.getString(5);
-                        correo= rs.getString(6);
-                        password= rs.getString(7);
+                        correo = rs.getString(6);
+                        tipoUsuario = rs.getString(7);
+                        if (tipoUsuario.equalsIgnoreCase("ingeniero")) {
+                            selecion = "selected";
+                        }
+                        password = rs.getString(8);
                     }
                 %>
                 <h1 class="contenidoh1"> Gestion Ingeniero</h1> </br> </br> </br>
@@ -112,11 +118,20 @@
                         <label class="izq" for="correo">Correo </label>
                         <input  <%="value='" + correo + "'"%> class="der" type="email" name="correo" id="correo">
                     </p>
-                    
+
                     <br>
                     <p>
                         <label class="izq" for="Contraseña">Contraseña </label>
                         <input  <%="value='" + password + "'"%> class="der" type="text" name="password" id="password">
+                    </p>
+                    <br>
+                    <p>
+                      <label class="izq" for="tipoUsuario">Tipo de usurio </label>
+                        <td><select name="tipoUsuario" class="der" >'>
+                            <option value="Adminstrador" > Adminstrador</option>";
+                            <option value="Ingeniero" <%=selecion%> >Ingeniero</option>";
+                        </select>
+                    </td>
                     </p>
                     <br>
                     <p>

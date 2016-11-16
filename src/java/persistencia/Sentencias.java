@@ -18,6 +18,7 @@ public class Sentencias {
     private static PreparedStatement insertarDatoProyecto = null;
      private static PreparedStatement insertarDatoIngeneiro = null;
      private static PreparedStatement insertarDatoIlicitacion = null;
+      private static PreparedStatement insertarfase = null;
 
     public static PreparedStatement InsertarNuevoProyecto() throws Exception {
         if (insertarDatoProyecto == null) {
@@ -33,22 +34,23 @@ public class Sentencias {
             System.out.println("ertetertertretertretertertertret");
             insertarDatoIngeneiro = conector.getConexion().prepareStatement("INSERT"
                     + " INTO ingenieros(cedula,nombres,apellidos,"
-                    + "telefono,direccion,correo,password)VALUES (?,?,?,?,?,?,?)");
+                    + "telefono,direccion,correo,tipoUsuario,password)VALUES (?,?,?,?,?,?,?,?)");
         }
 
         return insertarDatoIngeneiro;
     }
     
-    public static PreparedStatement getInsertarNuevaElicitacion() throws Exception {
-        if (insertarDatoIlicitacion == null) {
+    
+    
+     public static PreparedStatement getInsertarFase() throws Exception {
+        if (insertarfase == null) {
             
-            insertarDatoIlicitacion = conector.getConexion().prepareStatement("INSERT"
-                    + " INTO elicitacion(responsablesFases_datosProyectos_nombreProyectoggnhh,tecnica,fecha,"
-                    + "instrumento,responsablesFases_Ingenieros_cedula,resultado)"
-                    + "VALUES (?,?,?,?,?,?)");
+            insertarfase = conector.getConexion().prepareStatement("INSERT"
+                    + " INTO fases(fechaInicio,fechaFin,nombreFase,proyecto)"
+                    + "VALUES (?,?,?,?)");
         }
 
-        return insertarDatoIlicitacion;
+        return insertarfase;
     }
 
 }
