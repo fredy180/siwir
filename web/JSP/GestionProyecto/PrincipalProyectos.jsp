@@ -15,6 +15,7 @@
 <title>Listado Proyecto</title>
 <link rel="stylesheet" type="text/javascript" href="../Scrip/javaScript.js">
 <link rel="stylesheet" type="text/css" href="../../CSS/base.css">
+<link rel="stylesheet"  type="text/css" href="../../CSS/EstiloTabla.css">
 <link rel="stylesheet" type="text/css" href="../../CSS/pestaña.css" media="screen and (min-width: 900px)">
 <link rel="stylesheet" type="text/css" href="../../CSS/great.css" media="screen and (min-width: 900px)">
 <link rel="stylesheet" type="text/css" href="../../CSS/pestañaMedio.css" media="screen and (min-width: 480px) and (max-width: 900px)">
@@ -52,8 +53,8 @@
 
                 <h1 class="contenidoh1"> Proyectos Registrados</h1> </br> </br> </br>
                 
-                <center> <table border="1">
-                        <tr> <td><b>Clientes</b> </td> <td><b>Nombre Proyecto</b> </td> </tr>
+                    <table border="1">
+                        <tr> <th><b>Clientes</b> </th> <th><b>Nombre Proyecto</b> </th> </tr>
 
 
                         <%
@@ -63,13 +64,13 @@
                                 cadena = cadena + "<tr>" + "<td>" + rs.getString(1) + "</td>" + "<td><form action='PrincipalGestionProyecto.jsp' method='get'>"+
                              "<input class='izq'  type='text'  name='idProyecto'value='"+ rs.getString(2) +"'  ></input>"+
                               "<input type='submit' value='editar '>"+
-                        "</form></tr>";
+                        "</form></td></tr>";
                             }
                         %>
                        
                         <%=cadena%> 
 
-                    </table></center>
+                    </table>
             </div>
                         
 

@@ -33,7 +33,7 @@
 
             <div class="layoutIzquierda">
                 <a  href="PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos Registrado</center></h3> </a>
-                <a  href="../FaseElicitacion/PrincipalElicitacion.jsp" > <h3  class="pestaña1"><center>Fase Elicitacion</center></h3> </a>
+               
 
 
             </div>
@@ -82,8 +82,8 @@
                     <p>
                         <label class="izq" for="Estado">Estado: </label>
                         <br>
-                        <input type="radio" name="estado" value="0" checked="true"> En proceso<br>
-                        <input type="radio" name="estado" value="1"> Finalizado<br>                       
+                        <input type="radio" name="estado" value="false" checked> En proceso<br>
+                        <input type="radio" name="estado" value="true"> Finalizado<br>                       
                  
                     </p>
                     <br>

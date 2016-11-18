@@ -11,9 +11,10 @@ package ComponentesBD;
  */
 public class variablesGlobales {
 
-    public static String proyecto;
-    public static int idIngeniero;
-    public static int idElicitacion;
+    private static String proyecto;
+    private static int idIngeniero;
+    private static int idElicitacion;
+    private static String fase;
 
     public static void setNombreProyecto(String nombre) {
         proyecto = nombre;
@@ -38,6 +39,12 @@ public class variablesGlobales {
 
     public static int getElicitacion() {
         return idElicitacion;
+    }
+    public static String getFase() {
+        return fase;
+    }
+    public static void setFase(String nombreFase) {
+        fase=nombreFase;
     }
 
 }

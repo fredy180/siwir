@@ -23,7 +23,7 @@
             String correo = "";
             String fechaInicio = "";
             String fechaFin = "";
-            boolean finalizado;
+            boolean finalizado=true;
 
             nombreProyecto = request.getParameter("nombreProyecto");
             cliente = request.getParameter("cliente");
@@ -32,8 +32,10 @@
             correo = request.getParameter("correo");
             fechaInicio = request.getParameter("fechaInicio");
             fechaFin = request.getParameter("fechaFin");
-            finalizado = Boolean.parseBoolean(request.getParameter("estado"));
-                    ;
+          
+               if(request.getParameter("estado").equals("false")){
+                     finalizado = false;
+               }
            
             boolean registro = bd.insertarNuevoProyecto(nombreProyecto, cliente, direccion, telefono, correo, fechaInicio, fechaFin, finalizado);
             if (registro) {

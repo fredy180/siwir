@@ -22,7 +22,7 @@
             String correo = "";
             String fechaInicio = "";
             String fechaFin = "";
-            boolean finalizado;
+            boolean finalizado=false;
             
             nombreProyecto = request.getParameter("nombreProyecto");
             cliente = request.getParameter("cliente");
@@ -31,8 +31,10 @@
             correo = request.getParameter("correo");
             fechaInicio = request.getParameter("fechaInicio");
             fechaFin = request.getParameter("fechaFin");
-            finalizado = Boolean.parseBoolean(request.getParameter("estado"));
-      
+            if(request.getParameter("estado").equals("true")){
+                     finalizado = true;
+            }
+     
             CRUD bd = new CRUD();
            boolean actualizado= bd.actualizarProyecto(variablesGlobales.getProyecto(), 
                    nombreProyecto, cliente, direccion, telefono, correo, fechaInicio, fechaFin, finalizado);

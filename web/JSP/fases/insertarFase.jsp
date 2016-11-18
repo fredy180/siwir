@@ -4,6 +4,7 @@
     Author     : freddy
 --%>
 
+<%@page import="ComponentesBD.variablesGlobales"%>
 <%@page import="persistencia.CRUD_Fase"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%!  CRUD_Fase bd = new CRUD_Fase();%>
@@ -15,24 +16,19 @@
     </head>
     <body>
         <%
-            int cedula;
-            String nombres = "";
-            String apellidos = "";
-            String telefono = "";
-            String direccion = "";
-            String correo;
-            String tipoUsuario;
-            String password;
+         
+            String fechaInicio = "";
+            String fechaFin = "";
+            String nombreFase = "";
+            String proyecto = "";
+            
 
-            cedula = Integer.parseInt(request.getParameter("cedula"));
-            nombres = request.getParameter("nombres");
-            apellidos = request.getParameter("apellidos");
-            telefono = request.getParameter("telefono");
-            direccion = request.getParameter("direccion");
-            correo = request.getParameter("correo");
-            tipoUsuario = request.getParameter("tipoUsuario");
-            password = request.getParameter("password");
-            boolean registro = bd.insertarNuevoIngeneiro(cedula, nombres, apellidos, telefono, direccion, correo,tipoUsuario, password);
+            fechaInicio = request.getParameter("fechaInicio");
+            fechaFin = request.getParameter("fechaFin");
+            nombreFase = request.getParameter("nombreFase");
+            proyecto = variablesGlobales.getProyecto();
+            
+            boolean registro = bd.insertarFase(fechaInicio, fechaFin, nombreFase, proyecto);
             if (registro) {
                 out.print("Registro exitoso");
                 out.print("<hr>");

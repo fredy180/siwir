@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16/11/2016, 03:00:09 PM
+    Author     : Ingeniero Jean C
+*/
+
+
+
+
+table{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, tr, th, td  {
+    border-collapse: collapse;
+    border: 1px solid cornflowerblue;
+}
+
+table tr th{
+    background-color: captiontext;
+}
+
+table{
+    text-align: center;
+}
+td {
+    background-color: white;
+}
+
+th{
+    color: white; 
+}

@@ -22,6 +22,7 @@ public class CRUD {
     public boolean insertarNuevoProyecto(String nombreProyecto, String cliente,
             String direccion, String telefono, String correo, String fechaInicio,
             String fechaFin, boolean finalizado) {
+      
 //        System.out.println("esta "+nombreProyecto+" "+cliente+" "+direccion+" "+telefono+" "
 //        +correo+" "+fechaFin+" "+fechaFin+" "+fechaFin);
         boolean exito = false;
@@ -143,8 +144,7 @@ public class CRUD {
     public boolean actualizarProyecto(String nombreAnterior,String nombreProyecto, String cliente,
             String direccion, String telefono, String correo, String fechaInicio,
             String fechaFin, boolean finalizado) {
-         System.out.println("esta "+nombreProyecto+" "+cliente+" "+direccion+" "+telefono+" "
-        +correo+" "+fechaFin+" "+fechaFin+" "+nombreAnterior);
+        
         boolean registro = false;
 
         String sql = "UPDATE datosproyectos SET nombreProyecto='" + nombreProyecto 

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ActualizarElicitacion
-    Created on : 14/11/2016, 06:04:31 PM
+    Document   : Registrar
+    Created on : 18/11/2016, 12:32:44 AM
     Author     : freddy
 --%>
 

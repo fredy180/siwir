@@ -19,6 +19,7 @@ public class Sentencias {
      private static PreparedStatement insertarDatoIngeneiro = null;
      private static PreparedStatement insertarDatoIlicitacion = null;
       private static PreparedStatement insertarfase = null;
+       private static PreparedStatement insertarResponsables = null;
 
     public static PreparedStatement InsertarNuevoProyecto() throws Exception {
         if (insertarDatoProyecto == null) {
@@ -51,6 +52,16 @@ public class Sentencias {
         }
 
         return insertarfase;
+    }
+     public static PreparedStatement getIinsertarResponsable() throws Exception {
+        if (insertarResponsables == null) {
+            
+            insertarResponsables = conector.getConexion().prepareStatement("INSERT"
+                    + " INTO responsablefases(cedulaResponsables,proyecto,nombreFase)"
+                    + "VALUES (?,?,?)");
+        }
+
+        return insertarResponsables;
     }
 
 }

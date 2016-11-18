@@ -16,7 +16,7 @@
     String telefono = "";
     String correo = "";
     String fechaInicio = "";
-    String fechaFin = "";
+    String fechaFin = "",checked2="";
     boolean finalizado;
 %>
 <script type="text/javascript">
@@ -59,6 +59,8 @@
             <div class="layoutIzquierda">
                 <a  href="PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos Registrado</center></h3> </a>
                 <a  href="../fases/registroFase.jsp" > <h3  class="pestaña1"><center>Crear Fases</center></h3> </a>
+                <a  href="../fases/FaseElicitacion.jsp" > <h3  class="pestaña1"><center>Gestionar Fases</center></h3> </a>
+                <a  href="../Responsable/GestionResponsable.jsp" > <h3  class="pestaña1"><center>Gestionar Responsables</center></h3> </a>
                 
 
 
@@ -81,6 +83,13 @@
                         fechaInicio = rs.getString(6);
                         fechaFin = rs.getString(7);
                         finalizado = rs.getBoolean(8);
+                         if(finalizado){
+                             checked2="checked";
+                         }
+                         else {
+                           checked2="";  
+                         }
+                        
                     }
                 %>
                 <h1 class="contenidoh1"> Gestion Proyecto</h1> </br> </br> </br>
@@ -123,8 +132,8 @@
                     <p>
                         <label class="izq" for="Estado">Estado: </label>
                         <br>
-                        <input type="radio" name="estado" value="0" checked='<%=finalizado %>'> En proceso<br>
-                        <input type="radio" name="estado" value="1"> Finalizado<br>                       
+                        <input type="radio" name="estado" value="false" checked>En proceso<br>
+                        <input type="radio" name="estado" value="true" <%=checked2 %>> Finalizado<br>                       
 
                     </p>
                     <br>

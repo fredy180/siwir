@@ -33,7 +33,7 @@
 
             <div class="layoutIzquierda">
                 <a  href="../GestionProyecto/PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos</center></h3> </a>
-                <a  href="ListarIngeniero.jsp"> <h3 class="pestaña2"><center>Listar Ingenieros</center> </h3> </a>
+                
 
 
             </div>
@@ -43,15 +43,15 @@
             <div class="contenido">
 
                 <h1 class="contenidoh1"> Registrar Fases</h1> </br> </br> </br>
-                <form action="InsertarIngeniero.jsp" method="get">
+                <form action="insertarFase.jsp" method="get">
                     
                     <br>
                     <p>
                         <label class="izq" for="fase">Fase: </label>
-                        <td><select name="fase" class="der"  >'>
+                        <td><select name="nombreFase" class="der"  >'>
                             <option value="ELICITACION" selected> ELICITACION</option>";
                              <option value="ESPESIFICACION"  >ESPESIFICACION</option>";
-                            <option value="ANALAIS" selected >ANALAIS</option>";
+                            <option value="ANALISIS"  >ANALAIS</option>";
                         </select>
                     </p>
                       <br>
