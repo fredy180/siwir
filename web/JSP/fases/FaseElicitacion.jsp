@@ -85,7 +85,7 @@
                         
                     }
                 %>
-                <h1 class="contenidoh1"> Fase Especificacion</h1> </br> </br> </br>
+                <h1 class="contenidoh1"> Fase Elicitacion</h1> </br> </br> </br>
 
                 <form name="formulario" action="actualizarEstadoFase.jsp" method="get">                 
                     <p>

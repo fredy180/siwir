@@ -11,7 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%!
-    Sfloat  porcentajeFase;
+    float  porcentajeFase;
     String Observaciones="";
     boolean terminado;
     String fechaInicio="";
@@ -72,7 +72,8 @@
             <div class="contenido">
                  <%
                     CRUD_Fase crud = new CRUD_Fase();
-                    variablesGlobales.setNombreProyecto("ANALISIS");
+                    variablesGlobales.setFase("ANALISIS");
+                    System.out.println("esta quwi");
                     ResultSet rs = crud.consultarFase("ANALISIS", variablesGlobales.getProyecto());
                     if (rs.next()) {
                         porcentajeFase = rs.getFloat(1);
@@ -89,7 +90,7 @@
                         
                     }
                 %>
-                <h1 class="contenidoh1"> Fase Especificacion</h1> </br> </br> </br>
+                <h1 class="contenidoh1"> Fase Analis</h1> </br> </br> </br>
 
                 <form name="formulario" action="actualizarEstadoFase.jsp" method="get">                 
                     <p>

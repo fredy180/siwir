@@ -24,7 +24,7 @@
         document.formulario.action = destino;
         document.formulario.submit();
         // document.formulario.submit();
-        alert("la estafa 2");
+      
     }
 
 

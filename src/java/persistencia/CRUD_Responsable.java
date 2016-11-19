@@ -9,7 +9,10 @@ package persistencia;
 import ComponentesBD.conector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,6 +42,23 @@ public class CRUD_Responsable {
         }
         return exito;
     }
+    public ResultSet consultaResponsableProyecto(String nombreFase, String proyecto) {
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT cedula, nombres, apellidos from ingenieros i, responsablefases r" +
+            " where r.proyecto='"+proyecto+"' and r.nombreFase='"+nombreFase+"' and " +" i.cedula=r.cedulaResponsables;";
+            System.out.println(sql);
+            st = conector.getConexion().createStatement();
+            rs = st.executeQuery(sql);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+
+    }
+    
 
     
 }

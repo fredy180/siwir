@@ -25,8 +25,7 @@
         document.formulario.action = destino;
         document.formulario.submit();
         // document.formulario.submit();
-
-    }
+   }
 
 
 </script>
@@ -133,14 +132,15 @@
                         </select>
                     </td>
                     </p>
+                    
                     <br>
                     <p>
-                        <input type="button" value=" Actualizar " onclick="enviar('ActualizarIngeniero.jsp')">
+                        <input type="button" value=" Actualizar " onclick="enviar('actualizarElicitacion.jsp')">
                         <input type="button" value="Eliminar" onclick="enviar('EliminarIngeniero.jsp')">
 
 
 
-                        <input type="reset"  value="Limpiar">
+                    
                     </p>
 
                 </form> 

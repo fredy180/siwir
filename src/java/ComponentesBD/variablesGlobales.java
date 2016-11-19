@@ -15,9 +15,14 @@ public class variablesGlobales {
     private static int idIngeniero;
     private static int idElicitacion;
     private static String fase;
+    private static int idactividaElicitacion;
 
     public static void setNombreProyecto(String nombre) {
         proyecto = nombre;
+
+    }
+     public static void setIdactividaElicitacion(int id) {
+        idactividaElicitacion = id;
 
     }
 
@@ -45,6 +50,9 @@ public class variablesGlobales {
     }
     public static void setFase(String nombreFase) {
         fase=nombreFase;
+    }
+    public static int getIdActividadElicitacion() {
+        return idactividaElicitacion;
     }
 
 }

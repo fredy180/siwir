@@ -61,7 +61,7 @@
                 <a  href="../fases/registroFase.jsp" > <h3  class="pestaña1"><center>Crear Fases</center></h3> </a>
                 <a  href="../fases/FaseElicitacion.jsp" > <h3  class="pestaña1"><center>Gestionar Fases</center></h3> </a>
                 <a  href="../Responsable/GestionResponsable.jsp" > <h3  class="pestaña1"><center>Gestionar Responsables</center></h3> </a>
-                
+                <a  href="../gestionActividadFase/eleicitacion.jsp" > <h3  class="pestaña1"><center>Actividad Fases</center></h3> </a>
 
 
             </div>

@@ -12,15 +12,16 @@ import java.sql.PreparedStatement;
  *
  * @author Ingeniero Jean C
  */
-public class Sentencias { 
+public class Sentencias {
 //    Coconexion = Singleto.getConexion("localhost", "mydb","root","root"); 
 
     private static PreparedStatement insertarDatoProyecto = null;
-     private static PreparedStatement insertarDatoIngeneiro = null;
-     private static PreparedStatement insertarDatoIlicitacion = null;
-      private static PreparedStatement insertarfase = null;
-       private static PreparedStatement insertarResponsables = null;
-
+    private static PreparedStatement insertarDatoIngeneiro = null;
+    private static PreparedStatement insertarDatoIlicitacion = null;
+    private static PreparedStatement insertarfase = null;
+    private static PreparedStatement insertarResponsables = null;
+ private static PreparedStatement insertarActividadElicitacion = null;
+ private static PreparedStatement insertarActividadEspecificasion = null;
     public static PreparedStatement InsertarNuevoProyecto() throws Exception {
         if (insertarDatoProyecto == null) {
             insertarDatoProyecto = conector.getConexion().prepareStatement("INSERT"
@@ -30,6 +31,7 @@ public class Sentencias {
         }
         return insertarDatoProyecto;
     }
+
     public static PreparedStatement InsertarNuevoIngeniero() throws Exception {
         if (insertarDatoIngeneiro == null) {
             System.out.println("ertetertertretertretertertertret");
@@ -40,12 +42,10 @@ public class Sentencias {
 
         return insertarDatoIngeneiro;
     }
-    
-    
-    
-     public static PreparedStatement getInsertarFase() throws Exception {
+
+    public static PreparedStatement getInsertarFase() throws Exception {
         if (insertarfase == null) {
-            
+
             insertarfase = conector.getConexion().prepareStatement("INSERT"
                     + " INTO fases(fechaInicio,fechaFin,nombreFase,proyecto)"
                     + "VALUES (?,?,?,?)");
@@ -53,15 +53,36 @@ public class Sentencias {
 
         return insertarfase;
     }
-     public static PreparedStatement getIinsertarResponsable() throws Exception {
+
+    public static PreparedStatement getIinsertarResponsable() throws Exception {
         if (insertarResponsables == null) {
-            
+
             insertarResponsables = conector.getConexion().prepareStatement("INSERT"
                     + " INTO responsablefases(cedulaResponsables,proyecto,nombreFase)"
                     + "VALUES (?,?,?)");
         }
 
         return insertarResponsables;
+    }
+    public static PreparedStatement getIinsertarActividadElicitacion() throws Exception {
+        if (insertarActividadElicitacion == null) {
+
+            insertarActividadElicitacion = conector.getConexion().prepareStatement("INSERT"
+                    + " INTO registrosfaseelicitacion(proyecto,tecnica,fechaAplicacion,cedulaResponsable)"
+                    + "VALUES (?,?,?,?)");
+        }
+
+        return insertarActividadElicitacion;
+    }
+    public static PreparedStatement getIinsertarActividadEspesificacion() throws Exception {
+        if (insertarActividadEspecificasion == null) {
+
+            insertarActividadEspecificasion = conector.getConexion().prepareStatement("INSERT"
+                    + " INTO registrofasesespecificacion(version,cedulaResponsable,verificador,proyecto)"
+                    + "VALUES (?,?,?,?)");
+        }
+
+        return insertarActividadEspecificasion;
     }
 
 }

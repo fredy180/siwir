@@ -66,38 +66,29 @@
 
                             %>
                             <%=opciones%>
-
-                            
-
                         </select>
                         </p>
                         <br>
-
                         <p>
                             <label class="izq" for="Responsables">Fase: </label>
                     <td><select name="cedulaResponsables" class="der"  >'>
                             <%
-                            opciones="";
+                                opciones = "";
                                 ResultSet rs2 = crud2.consultarIngenieros();
                                 while (rs2.next()) {
-                                    opciones = opciones + "<option value='" + rs2.getString(1) + "' > " + rs2.getString(2)+ rs2.getString(3)+ "</option>";
+                                    opciones = opciones + "<option value='" + rs2.getString(1) + "' > " + rs2.getString(2) + " " + rs2.getString(3) + "</option>";
                                 }
-
                             %>
                             <%=opciones%>
                         </select>
                         </p>
                         <br>
-
                         <p>
                             <input type="submit" value=" Guardar ">
                             <input type="reset" value="Limpiar">
                         </p>
 
-                </form> 
-
-
-
+                </form>
             </div>
 
             <div class="piePagina">

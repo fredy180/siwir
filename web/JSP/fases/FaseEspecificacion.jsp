@@ -73,6 +73,7 @@
                 <%
                     CRUD_Fase crud = new CRUD_Fase();
                     variablesGlobales.setFase("ESPESIFICACION");
+                    
                     ResultSet rs = crud.consultarFase("ESPESIFICACION", variablesGlobales.getProyecto());
                     if (rs.next()) {
                         porcentajeFase = rs.getFloat(1);
