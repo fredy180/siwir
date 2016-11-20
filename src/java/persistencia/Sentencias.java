@@ -17,11 +17,12 @@ public class Sentencias {
 
     private static PreparedStatement insertarDatoProyecto = null;
     private static PreparedStatement insertarDatoIngeneiro = null;
-    private static PreparedStatement insertarDatoIlicitacion = null;
+//    private static PreparedStatement insertarDatoIlicitacion = null;
     private static PreparedStatement insertarfase = null;
     private static PreparedStatement insertarResponsables = null;
  private static PreparedStatement insertarActividadElicitacion = null;
  private static PreparedStatement insertarActividadEspecificasion = null;
+ private static PreparedStatement insertarActividaAnalis = null;
     public static PreparedStatement InsertarNuevoProyecto() throws Exception {
         if (insertarDatoProyecto == null) {
             insertarDatoProyecto = conector.getConexion().prepareStatement("INSERT"
@@ -68,8 +69,8 @@ public class Sentencias {
         if (insertarActividadElicitacion == null) {
 
             insertarActividadElicitacion = conector.getConexion().prepareStatement("INSERT"
-                    + " INTO registrosfaseelicitacion(proyecto,tecnica,fechaAplicacion,cedulaResponsable)"
-                    + "VALUES (?,?,?,?)");
+                    + " INTO registrosfaseelicitacion(proyecto,tecnica,fechaAplicacion,instrumento,cedulaResponsable)"
+                    + "VALUES (?,?,?,?,?)");
         }
 
         return insertarActividadElicitacion;
@@ -83,6 +84,16 @@ public class Sentencias {
         }
 
         return insertarActividadEspecificasion;
+    }
+    public static PreparedStatement getIinsertarActividadAnalisis() throws Exception {
+        if (insertarActividaAnalis == null) {
+
+            insertarActividaAnalis = conector.getConexion().prepareStatement("INSERT"
+                    + " INTO registrosfaseanalisis(modelo,responsable,proyecto,fechaAsignado)"
+                    + "VALUES (?,?,?,?)");
+        }
+
+        return insertarActividaAnalis;
     }
 
 }

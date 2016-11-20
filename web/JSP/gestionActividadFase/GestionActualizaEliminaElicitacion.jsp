@@ -11,7 +11,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%!
-    String opciones = "", tecnica, fechaAplicacion;
+    String opciones = "", tecnica, fechaAplicacion,
+            istrumento;
     int idRegistroElicitacion, cedulaResponsable;
 %>
 <script type="text/javascript">
@@ -19,7 +20,7 @@
         document.formulario.action = destino;
         document.formulario.submit();
         // document.formulario.submit();
-   }
+    }
 
 
 </script>
@@ -46,20 +47,22 @@
             if (rs2.next()) {
                 tecnica = rs2.getString(2);
                 fechaAplicacion = rs2.getString(3);
-                cedulaResponsable = rs2.getInt(4);
+                istrumento = rs2.getString(4);
+                cedulaResponsable = rs2.getInt(5);
             }
 
         %>
 
 
 
-        <form name="formulario2" method="post">
+        <form name="formulario2" method="post" action="actualizarElicitacion.jsp">
             <p>
                 <label class="izq" for="tecnica">Tecnica: </label>
                 <input class="der" type="text" value='<%= tecnica%>' name="tecnica" >
             </p> 
             <br>
-
+            <br>
+            
             <p>
                 <label class="izq" for="Responsable">Responsable: </label>
             <td><select name="cedulaResponsable" class="der"  >'>
@@ -87,11 +90,17 @@
                 </p> 
                 <br>
                 <p>
-                    <input type="button" value=" Actualizar " onclick="enviar('actualizarElicitacion.jsp')">
-                    <input type="button" value="Eliminar" onclick="enviar('eleminaActividaElicitacion.jsp')">
-                    
-                    
-                  
+                <label class="izq" for="instrumento">Instrumento </label>
+                <textarea rows="4" cols="50" class="der"  name="instrumento" ><%= istrumento%>
+                </textarea>
+            </p> 
+
+                <p>
+                    <input type="submit" value=" Actualizar ">
+
+
+
+
                 </p>
 
         </form> 

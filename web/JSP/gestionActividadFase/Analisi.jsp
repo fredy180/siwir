@@ -9,13 +9,16 @@
 <%@page import="ComponentesBD.variablesGlobales"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%! String opciones = "", cadena = "";%>
+<%! String opciones = "", cadena="";%>
 <!DOCTYPE html>
 
+
+
+</script>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Especificacion</title>
+        <title>Registro Proyecto</title>
         <link rel="stylesheet" type="text/css" href="../../CSS/EstiloTabla.css">
         <link rel="stylesheet" type="text/css" href="../../CSS/base.css">
         <link rel="stylesheet" type="text/css" href="../../CSS/pestaña.css" media="screen and (min-width: 900px)">
@@ -39,8 +42,9 @@
 
             <div class="layoutIzquierda">
                 <a  href="PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos Registrado</center></h3> </a>
-                <a  href="eleicitacion.jsp" > <h3  class="pestaña1"><center>Elicitacio</center></h3> </a>
-                <a  href="analisi.jsp" > <h3  class="pestaña1"><center>Analis</center></h3> </a>
+                <a  href="espesificacion.jsp" > <h3  class="pestaña1"><center>Espesificacion</center></h3> </a>
+
+                <a  href="eleicitacion.jsp" > <h3  class="pestaña1"><center>Analisi</center></h3> </a>
 
             </div>
 
@@ -48,21 +52,21 @@
 
             <div class="contenido">
 
-                <h1 class="contenidoh1"> Registro de Activida Espesificacion</h1> </br> </br> </br>
-                <form action="insertarActividadEspesisificacion.jsp" method="get">
+                <h1 class="contenidoh1"> Registro de Activida Elicitacion</h1> </br> </br> </br>
+                <form action="InsertarActividaElicitacion.jsp" method="get">
                     <p>
-                        <label class="izq" for="Numero version">version: </label>
-                        <input class="der" type="text" name="version" id="nombreProyecto">
+                        <label class="izq" for="modelo">Modelo: </label>
+                        <input class="der" type="text" name="modelo" >
                     </p> 
                     <br>
 
                     <p>
-                        <label class="izq" for="Responsable">Responsable: </label>
-                   
-                        <select name="cedulaResponsable" class="der"  >'>
+                        <label class="izq" for="responsable">Responsable: </label>
+                    <td><select name="responsable" class="der"  >'>
                             <%
+                                opciones="";
                                 CRUD_Responsable crud = new CRUD_Responsable();
-                                ResultSet rs = crud.consultaResponsableProyecto("ESPESIFICACION", variablesGlobales.getProyecto());
+                                ResultSet rs = crud.consultaResponsableProyecto("ANALISIS", variablesGlobales.getProyecto());
                                 while (rs.next()) {
                                     opciones = opciones + "<option value='" + rs.getString(1) + "' > " + rs.getString(2) + " " + rs.getString(3) + "</option>";
                                 }
@@ -73,16 +77,11 @@
                         </p>
                         <br>
                         <p>
-                            <label class="izq" for="Verificador ">Verificador </label>
-                    <td>
-                        <select name="verificador" class="der"  >'>
-
-                            <%=opciones%>
-
-                        </select>
-                        </p>
+                            <label class="izq" for="Fecha">Fecha  </label>
+                            <input class="der" type="date" name="fechaAsignado" >
+                        </p> 
+                        
                         <br>
-
                         <p>
                             <input type="submit" value=" Registar ">
                             <input type="reset" value="Limpiar">
@@ -96,33 +95,35 @@
                 </center>  
 
                 <table>
-                    <tr> <th>Responsable</th> <th>Verificador</th><th>Version </th> </tr>
+                    <tr> <th>Modelo</th> <th>Responsable</th><th>fechaAsignado </th></th><th>Id </th> <th>Id Tecnica </th> <th> </th> </tr>
 
                     <%
-                        ResultSet rs2;
-                        CRUD_Actividad crud2 = new CRUD_Actividad();
-                        rs2 = crud2.consultarActividesFaseEspesisificacione(variablesGlobales.getProyecto());
-                        cadena = "";
+                            ResultSet rs2;
+                            CRUD_Actividad crud2 = new CRUD_Actividad(); 
+                            rs2 = crud2.consultarActividesFaseAnali(variablesGlobales.getProyecto());
+                            cadena = "";
+                            
+                            while (rs2.next()) {
+                                cadena = cadena + "<tr>" + 
+                                        "<td>" + rs2.getString(2) + "</td>"
+                                        +"<td>" + rs2.getString(3) + "<td>" 
+                                        + rs2.getString(4) + "</td>"  +
+                                        "<td><form action='GestionActualizaEliminaElicitacion.jsp' method='get'>"
+                                        + "<input class='izq'  type='text'  name='idRegistroElicitacion'value='" 
+                                        + rs2.getString(1) + "'  ></input>"
+                                        + "<input type='submit' value=' editar '>"
+                                        + "</form> </td>"
+                                 
+                                      +  "<td><form action='eleminaActividaElicitacion.jsp' method='get'>"
+                                        + "<input class='izq'  type='text'  name='idRegistroElicitacion'value='" 
+                                        + rs2.getString(1) + "'  ></input>"
+                                        + "<input type='submit' value= ' Eliminar '>"
+                                        + "</form> </td></tr>";
+                            }
+                            
+                        %>
 
-                        while (rs2.next()) {
-                            cadena = cadena + "<tr>"
-                                    + "<td>" + rs2.getString(2) + "</td>"
-                                    + "<td>" + rs2.getString(3)
-                                    + "<td><form action='GestionarActualizarEspesificacion.jsp' method='get'>"
-                                    + "<input class='izq'  type='text'  name='version'value='"
-                                    + rs2.getString(1) + "'  ></input>"
-                                    + "<input type='submit' value=' editar '>"
-                                    + "</form> </td>"
-                                    + "<td><form action='eleminaActividaEspesificacion.jsp' method='get'>"
-                                    + "<input class='izq'  type='text'  name='version'value='"
-                                    + rs2.getString(1) + "'  ></input>"
-                                    + "<input type='submit' value= ' Eliminar '>"
-                                    + "</form> </td></tr>";
-                        }
-
-                    %>
-
-                    <%=cadena%> 
+                        <%=cadena%> 
 
 
                 </table>

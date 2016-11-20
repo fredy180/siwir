@@ -153,7 +153,7 @@ public class CRUD {
                 + ",correo='" + correo + "',fechaInicio='"+fechaInicio+"'"
                 +",fechaFin='"+fechaFin+"'"+ ",finalizado="+finalizado+""
                 + " WHERE nombreProyecto='" + nombreAnterior + "';";
-        System.out.println(sql);
+//        System.out.println(sql);
         PreparedStatement ps;
         try {
             ps = conector.getConexion().prepareStatement(sql);

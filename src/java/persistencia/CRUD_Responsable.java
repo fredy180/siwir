@@ -48,7 +48,7 @@ public class CRUD_Responsable {
         try {
             String sql = "SELECT cedula, nombres, apellidos from ingenieros i, responsablefases r" +
             " where r.proyecto='"+proyecto+"' and r.nombreFase='"+nombreFase+"' and " +" i.cedula=r.cedulaResponsables;";
-            System.out.println(sql);
+//            System.out.println(sql);
             st = conector.getConexion().createStatement();
             rs = st.executeQuery(sql);
 

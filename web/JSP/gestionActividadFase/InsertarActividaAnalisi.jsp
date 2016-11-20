@@ -1,6 +1,6 @@
 <%-- 
-    Document   : insertarActividadEspesisificacion
-    Created on : 19/11/2016, 01:52:51 PM
+    Document   : InsertarActividaElicitacion
+    Created on : 19/11/2016, 09:26:16 AM
     Author     : freddy
 --%>
 
@@ -11,19 +11,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Insertar</title>
     </head>
     <body>
         <%
-            int version, verificador;
-            int cedulaResponsable;
+            String modelo, instrumento;
+            String fechaAsignado;
+            int responsable;
             String proyecto = variablesGlobales.getProyecto();
             CRUD_Actividad crud = new CRUD_Actividad();
-            version = Integer.parseInt(request.getParameter("version"));
-            verificador = Integer.parseInt(request.getParameter("verificador"));
-            cedulaResponsable = Integer.parseInt(request.getParameter("cedulaResponsable"));
-       
-            boolean registro = crud.insertarActividadEspesisificacion(version , cedulaResponsable, verificador, proyecto);
+            modelo = request.getParameter("modelo");
+             fechaAsignado = request.getParameter("fechaAsignado");
+             instrumento= request.getParameter("instrumento");
+              responsable = Integer.parseInt(request.getParameter("responsable"));
+            boolean registro = crud.i
             if (registro) {
                 out.print("Registro exitoso");
                 out.print("<hr>");

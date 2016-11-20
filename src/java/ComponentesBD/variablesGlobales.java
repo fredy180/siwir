@@ -16,6 +16,16 @@ public class variablesGlobales {
     private static int idElicitacion;
     private static String fase;
     private static int idactividaElicitacion;
+    public static int version;
+
+    public static int getVersion() {
+        return version;
+    }
+
+    public static void setVersion(int version) {
+        variablesGlobales.version = version;
+    }
+    
 
     public static void setNombreProyecto(String nombre) {
         proyecto = nombre;

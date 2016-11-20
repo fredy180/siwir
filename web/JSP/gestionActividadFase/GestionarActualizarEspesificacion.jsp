@@ -9,7 +9,10 @@
 <%@page import="ComponentesBD.variablesGlobales"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%! String opciones = "", cadena = "";%>
+<%! String opciones = "", cadena = "";
+    int version, cedulaResponsable, verificador;
+     CRUD_Responsable crud = new CRUD_Responsable();
+%>
 <!DOCTYPE html>
 
 <html>
@@ -49,34 +52,65 @@
             <div class="contenido">
 
                 <h1 class="contenidoh1"> Registro de Activida Espesificacion</h1> </br> </br> </br>
+                <%
+                    int version = Integer.parseInt(request.getParameter("version"));
+                    CRUD_Actividad c = new CRUD_Actividad();
+                    variablesGlobales.setVersion(version);
+                    ResultSet rs2 = c.consultarActividFaseEspesificacion(variablesGlobales.getProyecto(), version);
+                    if (rs2.next()) {
+                        cedulaResponsable = rs2.getInt(7);
+                        verificador = rs2.getInt(5);
+                      
+                    }
+
+
+                %>
+
                 <form action="insertarActividadEspesisificacion.jsp" method="get">
                     <p>
                         <label class="izq" for="Numero version">version: </label>
-                        <input class="der" type="text" name="version" id="nombreProyecto">
+                        <input class="der" type="text" name="version" value='<%=version%>'>
                     </p> 
                     <br>
 
                     <p>
                         <label class="izq" for="Responsable">Responsable: </label>
-                   
+
                         <select name="cedulaResponsable" class="der"  >'>
-                            <%
-                                CRUD_Responsable crud = new CRUD_Responsable();
+                            <%                                
+                             
                                 ResultSet rs = crud.consultaResponsableProyecto("ESPESIFICACION", variablesGlobales.getProyecto());
+                                String s="";
                                 while (rs.next()) {
-                                    opciones = opciones + "<option value='" + rs.getString(1) + "' > " + rs.getString(2) + " " + rs.getString(3) + "</option>";
+                                    s="";
+                                    if(cedulaResponsable==rs.getInt(1)){
+                                    s=" selected ";
+                                    }
+                                    opciones = opciones + "<option value='" + rs.getString(1) + "'"+s+" > " + rs.getString(2) + " " + rs.getString(3) + "</option>";
                                 }
                             %>
                             <%=opciones%>
 
                         </select>
-                        </p>
-                        <br>
-                        <p>
-                            <label class="izq" for="Verificador ">Verificador </label>
+                    </p>
+                    <br>
+                    <p>
+                        <label class="izq" for="Verificador ">Verificador </label>
                     <td>
                         <select name="verificador" class="der"  >'>
 
+                         <%                                
+                             
+                                ResultSet rs22 = crud.consultaResponsableProyecto("ESPESIFICACION", variablesGlobales.getProyecto());
+                                String ss="";
+                                while (rs.next()) {
+                                    s="";
+                                    if(verificador==rs22.getInt(1)){
+                                    s=" selected ";
+                                    }
+                                    opciones = opciones + "<option value='" + rs22.getString(1) + "'"+ss+" > " + rs22.getString(2) + " " + rs22.getString(3) + "</option>";
+                                }
+                            %>
                             <%=opciones%>
 
                         </select>
@@ -89,44 +123,6 @@
                         </p>
 
                 </form> 
-
-                <br>
-                <hr>
-                <br>
-                </center>  
-
-                <table>
-                    <tr> <th>Responsable</th> <th>Verificador</th><th>Version </th> </tr>
-
-                    <%
-                        ResultSet rs2;
-                        CRUD_Actividad crud2 = new CRUD_Actividad();
-                        rs2 = crud2.consultarActividesFaseEspesisificacione(variablesGlobales.getProyecto());
-                        cadena = "";
-
-                        while (rs2.next()) {
-                            cadena = cadena + "<tr>"
-                                    + "<td>" + rs2.getString(2) + "</td>"
-                                    + "<td>" + rs2.getString(3)
-                                    + "<td><form action='GestionarActualizarEspesificacion.jsp' method='get'>"
-                                    + "<input class='izq'  type='text'  name='version'value='"
-                                    + rs2.getString(1) + "'  ></input>"
-                                    + "<input type='submit' value=' editar '>"
-                                    + "</form> </td>"
-                                    + "<td><form action='eleminaActividaEspesificacion.jsp' method='get'>"
-                                    + "<input class='izq'  type='text'  name='version'value='"
-                                    + rs2.getString(1) + "'  ></input>"
-                                    + "<input type='submit' value= ' Eliminar '>"
-                                    + "</form> </td></tr>";
-                        }
-
-                    %>
-
-                    <%=cadena%> 
-
-
-                </table>
-
 
             </div>
 

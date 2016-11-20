@@ -15,15 +15,16 @@
     </head>
     <body>
         <%
-            String tecnica;
+            String tecnica, instrumento;
             String fechaAplicacion;
             int cedulaResponsable;
             String proyecto = variablesGlobales.getProyecto();
             CRUD_Actividad crud = new CRUD_Actividad();
             tecnica = request.getParameter("tecnica");
              fechaAplicacion = request.getParameter("fechaAplicacion");
+             instrumento= request.getParameter("instrumento");
               cedulaResponsable = Integer.parseInt(request.getParameter("cedulaResponsable"));
-            boolean registro = crud.insertarActividadFase(proyecto, tecnica, fechaAplicacion, cedulaResponsable);
+            boolean registro = crud.insertarActividadFase(proyecto, tecnica, fechaAplicacion,instrumento, cedulaResponsable);
             if (registro) {
                 out.print("Registro exitoso");
                 out.print("<hr>");

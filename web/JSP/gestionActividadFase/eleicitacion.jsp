@@ -44,7 +44,7 @@
                 <a  href="PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos Registrado</center></h3> </a>
                 <a  href="espesificacion.jsp" > <h3  class="pestaña1"><center>Espesificacion</center></h3> </a>
 
-                  <a  href="analisi.jsp" > <h3  class="pestaña1"><center>Analisi</center></h3> </a>
+                  <a  href="Analisi.jsp" > <h3  class="pestaña1"><center>Analisi</center></h3> </a>
 
             </div>
 
@@ -64,6 +64,7 @@
                         <label class="izq" for="Responsable">Responsable: </label>
                     <td><select name="cedulaResponsable" class="der"  >'>
                             <%
+                                opciones="";
                                 CRUD_Responsable crud = new CRUD_Responsable();
                                 ResultSet rs = crud.consultaResponsableProyecto("ELICITACION", variablesGlobales.getProyecto());
                                 while (rs.next()) {
@@ -81,6 +82,12 @@
                         </p> 
                         <br>
                         <p>
+                            <label class="izq" for="instrumento">Instrumento </label>
+                            <textarea rows="4" cols="50" class="der"  name="instrumento" >texto
+                            </textarea>
+                        </p> 
+                        <br>
+                        <p>
                             <input type="submit" value=" Registar ">
                             <input type="reset" value="Limpiar">
                         </p>
@@ -93,24 +100,31 @@
                 </center>  
 
                 <table>
-                    <tr> <th>Tecnica</th> <th>Fecha Aplicacion</th><th>Responsable </th> <th>Id Tecnica </th> </tr>
+                    <tr> <th>Tecnica</th> <th>Fecha Aplicacion</th><th>Instruemneto </th></th><th>Responsable </th> <th>Id Tecnica </th> <th> </th> </tr>
 
                     <%
                             ResultSet rs2;
                             CRUD_Actividad crud2 = new CRUD_Actividad(); 
                             rs2 = crud2.consultarActividesFaseElicitacion(variablesGlobales.getProyecto());
                             cadena = "";
-                            System.out.println("------------------------------"+rs2);
+                            
                             while (rs2.next()) {
                                 cadena = cadena + "<tr>" + 
                                         "<td>" + rs2.getString(2) + "</td>"
                                         +"<td>" + rs2.getString(3) + "<td>" 
-                                        + rs2.getString(4) + "</td>" + 
-                                        "</td>" + "<td><form action='gestionActualizaEliminaElicitacion.jsp' method='get'>"
+                                        + rs2.getString(4) + "</td>"  + "<td>" 
+                                        + rs2.getString(5) + "</td>" +
+                                        "<td><form action='GestionActualizaEliminaElicitacion.jsp' method='get'>"
                                         + "<input class='izq'  type='text'  name='idRegistroElicitacion'value='" 
                                         + rs2.getString(1) + "'  ></input>"
-                                        + "<input type='submit' value='editar '>"
-                                        + "</form></tr>";
+                                        + "<input type='submit' value=' editar '>"
+                                        + "</form> </td>"
+                                 
+                                      +  "<td><form action='eleminaActividaElicitacion.jsp' method='get'>"
+                                        + "<input class='izq'  type='text'  name='idRegistroElicitacion'value='" 
+                                        + rs2.getString(1) + "'  ></input>"
+                                        + "<input type='submit' value= ' Eliminar '>"
+                                        + "</form> </td></tr>";
                             }
                             
                         %>

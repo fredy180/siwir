@@ -21,7 +21,7 @@ public class CRUD_Fase {
 
     public boolean insertarFase(String fechaInicio, String fechaFin, String nombreFase, String proyecto) {
         boolean exito = false;
-        System.out.println(fechaInicio + " " + fechaFin + " " + nombreFase + " " + proyecto);
+//        System.out.println(fechaInicio + " " + fechaFin + " " + nombreFase + " " + proyecto);
         try {
             Statement st = conector.getConexion().createStatement();
             ResultSet rs = st.executeQuery("select true FROM  fases  where nombreFase='" + nombreFase + "'"
@@ -51,7 +51,7 @@ public class CRUD_Fase {
                 + "',fechaFin='" + fechaFin + "',nombreFase='" + nombreFase + "'"
                 + ",proyecto='" + proyecto + "'"
                 + " WHERE nombreFase='" + nombreFase + "' and  proyecto='" + proyecto + "';";
-        System.out.println(sql);
+//        System.out.println(sql);
         PreparedStatement ps;
         try {
             ps = conector.getConexion().prepareStatement(sql);
@@ -71,7 +71,7 @@ public class CRUD_Fase {
         String sql = "UPDATE fases SET porcentajeFase=" + porcentajeFase + ",Observaciones='"
                 + Observaciones + "',terminado=" + terminado
                 + " WHERE nombreFase='" + nombreFase + "' and  proyecto='" + proyecto + "';";
-        System.out.println(sql);
+//        System.out.println(sql);
         PreparedStatement ps;
         try {
             ps = conector.getConexion().prepareStatement(sql);
@@ -93,7 +93,7 @@ public class CRUD_Fase {
             String sql = "SELECT porcentajeFase, Observaciones, terminado,"
                     + "fechaInicio,fechaFin from fases"
                     + " WHERE nombreFase='" + nombreFase + "' and proyecto ='" + proyecto + "';";
-            System.out.println(sql);
+//            System.out.println(sql);
             st = conector.getConexion().createStatement();
             rs = st.executeQuery(sql);
 
@@ -110,7 +110,7 @@ public class CRUD_Fase {
         ResultSet rs = null;
         try {
             String sql = "SELECT nombreFase from fases WHERE proyecto='"+proyecto+"'";
-            System.out.println(sql);
+//            System.out.println(sql);
             st = conector.getConexion().createStatement();
             rs = st.executeQuery(sql);
 

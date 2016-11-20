@@ -1,6 +1,6 @@
 <%-- 
-    Document   : insertarActividadEspesisificacion
-    Created on : 19/11/2016, 01:52:51 PM
+    Document   : actualizarEspesificacion
+    Created on : 19/11/2016, 07:01:21 PM
     Author     : freddy
 --%>
 
@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%
+       <%
             int version, verificador;
             int cedulaResponsable;
             String proyecto = variablesGlobales.getProyecto();
@@ -23,7 +23,7 @@
             verificador = Integer.parseInt(request.getParameter("verificador"));
             cedulaResponsable = Integer.parseInt(request.getParameter("cedulaResponsable"));
        
-            boolean registro = crud.insertarActividadEspesisificacion(version , cedulaResponsable, verificador, proyecto);
+            boolean registro = crud.actualizarActividadSpesificacion(variablesGlobales.getVersion(), version, verificador, proyecto, cedulaResponsable);
             if (registro) {
                 out.print("Registro exitoso");
                 out.print("<hr>");
