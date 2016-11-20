@@ -44,7 +44,7 @@
                 <a  href="PrincipalProyectos.jsp" > <h3  class="pestaña1"><center>Proyectos Registrado</center></h3> </a>
                 <a  href="espesificacion.jsp" > <h3  class="pestaña1"><center>Espesificacion</center></h3> </a>
 
-                <a  href="eleicitacion.jsp" > <h3  class="pestaña1"><center>Analisi</center></h3> </a>
+                <a  href="eleicitacion.jsp" > <h3  class="pestaña1"><center>Elisitacion</center></h3> </a>
 
             </div>
 
@@ -52,8 +52,8 @@
 
             <div class="contenido">
 
-                <h1 class="contenidoh1"> Registro de Activida Elicitacion</h1> </br> </br> </br>
-                <form action="InsertarActividaElicitacion.jsp" method="get">
+                <h1 class="contenidoh1"> Registro de Activida Analisi</h1> </br> </br> </br>
+                <form action="InsertarActividaAnalisi.jsp" method="get">
                     <p>
                         <label class="izq" for="modelo">Modelo: </label>
                         <input class="der" type="text" name="modelo" >
@@ -108,14 +108,14 @@
                                         "<td>" + rs2.getString(2) + "</td>"
                                         +"<td>" + rs2.getString(3) + "<td>" 
                                         + rs2.getString(4) + "</td>"  +
-                                        "<td><form action='GestionActualizaEliminaElicitacion.jsp' method='get'>"
-                                        + "<input class='izq'  type='text'  name='idRegistroElicitacion'value='" 
+                                        "<td><form action='GestionarActividadAnalisi.jsp' method='get'>"
+                                        + "<input class='izq'  type='text'  name='idRegistroAnalisi'value='" 
                                         + rs2.getString(1) + "'  ></input>"
                                         + "<input type='submit' value=' editar '>"
                                         + "</form> </td>"
                                  
-                                      +  "<td><form action='eleminaActividaElicitacion.jsp' method='get'>"
-                                        + "<input class='izq'  type='text'  name='idRegistroElicitacion'value='" 
+                                      +  "<td><form action='EliminarActividadAnalisi.jsp' method='get'>"
+                                        + "<input class='izq'  type='text'  name='idRegistroAnalisi'value='" 
                                         + rs2.getString(1) + "'  ></input>"
                                         + "<input type='submit' value= ' Eliminar '>"
                                         + "</form> </td></tr>";

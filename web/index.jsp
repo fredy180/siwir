@@ -25,16 +25,16 @@
             conector.ConectarMySQL("localhost", "bd_siwir", "root", "root");
             %>
         <div>
-            <form action="JSP/GestionProyecto/PrincipalProyectos.jsp" method="get">
+            <form action="IniciaSesion.jsp" method="get">
                 <caption><h2> <center>Iniciar Sesion </center> </h2></caption>
                 <p>
                     <br>
-                    <label class="izq" for="nombreUsuario">Nombre Usuario: </label>
-                    <input class="der" type="text" name="nombreUsuario" id="nombreUsuario">
+                    <label class="izq" for="cedula">Nombre Usuario: </label>
+                    <input class="der" type="number" name="nombreUsuario" >
                 </p>
                 <p>
                     <label class="izq" for="contraseña">Password:</label>
-                    <input class="der" type="text" name="contraseña" id="contraseña">
+                    <input class="der" type="password" name="password" >
                 </p>
                 <p>
                     <input type="submit" value=" Iniciar ">

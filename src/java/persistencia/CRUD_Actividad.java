@@ -78,6 +78,7 @@ public class CRUD_Actividad {
         return exito;
     }
     
+    
     public ResultSet consultarActividesFaseElicitacion(String proyecto) {
         Statement st = null;
         ResultSet rs = null;
@@ -100,7 +101,7 @@ public class CRUD_Actividad {
         try {
             String sql = "SELECT idRegistroAnalisi, modelo,responsable,fechaAsignado"
                     +" FROM registrosfaseanalisis where proyecto='"+proyecto+"';";
-            System.out.println(sql);
+           
             st = conector.getConexion().createStatement();
             rs = st.executeQuery(sql);
 
@@ -111,6 +112,23 @@ public class CRUD_Actividad {
 
     }
     
+      public ResultSet consultarActividFaseAnali(String proyecto, int idRegistroAnalisi) {
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT idRegistroAnalisi, modelo,responsable,fechaAsignado"
+                    +" FROM registrosfaseanalisis where proyecto='"+proyecto+"'"
+                    + "and idRegistroAnalisi="+idRegistroAnalisi+";";
+            System.out.println(sql);
+            st = conector.getConexion().createStatement();
+            rs = st.executeQuery(sql);
+
+        } catch (SQLException ex) {
+           
+        }
+        return rs;
+
+    }
     public ResultSet consultarActividesFaseEspesisificacione(String proyecto) {
         Statement st = null;
         ResultSet rs = null;
@@ -149,6 +167,25 @@ public class CRUD_Actividad {
         String sql = "UPDATE registrosfaseelicitacion SET tecnica='" + tecnica + "',fechaAplicacion='"
                 + fechaAplicacion + "', instrumento='"+instrumento+"',cedulaResponsable=" + cedulaResponsable
                 + " WHERE idRegistroElicitacion=" + idRegistroElicitacion + " and  proyecto='" + proyecto + "';";
+        
+        PreparedStatement ps;
+        try {
+            ps = conector.getConexion().prepareStatement(sql);
+            int p = ps.executeUpdate();
+            if (p > 0) {
+                actualizado = true;
+
+            }
+        } catch (SQLException ex) {
+
+        }
+        return actualizado;
+    }
+        public boolean actualizarActividadAnalisis(int idRegistroAnalisi, String modelo,int responsable, String proyecto, String fechaAsignado) {
+        boolean actualizado = false;
+        String sql = "UPDATE registrosfaseanalisis SET modelo='" + modelo + "',responsable="
+                + responsable + ", fechaAsignado='"+fechaAsignado+"'"
+                + " WHERE idRegistroAnalisi=" + idRegistroAnalisi + " and  proyecto='" + proyecto + "';";
         System.out.println(sql);
         PreparedStatement ps;
         try {
@@ -168,6 +205,26 @@ public class CRUD_Actividad {
         boolean eliminado = false;
         String sql = "DELETE  from registrosfaseelicitacion where proyecto ='" + proyecto + "'"
                 + "and idRegistroElicitacion="+idRegistroElicitacion+";";
+//         System.out.println(sql);
+        PreparedStatement ps;
+        try {
+            ps = conector.getConexion().prepareStatement(sql);
+            int p = ps.executeUpdate();
+            if (p > 0) {
+                eliminado = true;
+
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        return eliminado;
+
+    }
+      public boolean eliminarActividaAnalis(int idRegistroAnalisi, String proyecto ) {
+        boolean eliminado = false;
+        String sql = "DELETE  from registrosfaseanalisis where proyecto ='" + proyecto + "'"
+                + "and idRegistroAnalisi="+idRegistroAnalisi+";";
 //         System.out.println(sql);
         PreparedStatement ps;
         try {

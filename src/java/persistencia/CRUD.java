@@ -6,6 +6,7 @@
 package persistencia;
 
 import ComponentesBD.conector;
+import gestionArchivos.crearCarpeta;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,6 +45,8 @@ public class CRUD {
                 int m = p.executeUpdate();
                 if (m > 0) {
                     exito = true;
+                    crearCarpeta.crearCarpeta(nombreProyecto);
+                    
                 }
             }
         } catch (Exception ex) {
@@ -56,7 +59,7 @@ public class CRUD {
         ResultSet rs = null;
         try {
             st = conector.getConexion().createStatement();
-            rs = st.executeQuery("select  cliente,nombreProyecto FROM  datosproyectos;");
+            rs = st.executeQuery("select  cliente,nombreProyecto FROM  datosproyectos where finalizado=false;");
         } catch (SQLException ex) {
             Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
         }

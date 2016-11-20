@@ -17,6 +17,24 @@ public class variablesGlobales {
     private static String fase;
     private static int idactividaElicitacion;
     public static int version;
+    public static int idRegistroAnalisi;
+
+    public static int getIdElicitacion() {
+        return idElicitacion;
+    }
+
+    public static void setIdElicitacion(int idElicitacion) {
+        variablesGlobales.idElicitacion = idElicitacion;
+    }
+
+    public static int getIdRegistroAnalisi() {
+        return idRegistroAnalisi;
+    }
+
+    public static void setIdRegistroAnalisi(int idRegistroAnalisi) {
+        variablesGlobales.idRegistroAnalisi = idRegistroAnalisi;
+    }
+    
 
     public static int getVersion() {
         return version;

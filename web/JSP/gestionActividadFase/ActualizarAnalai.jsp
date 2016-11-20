@@ -1,6 +1,6 @@
 <%-- 
-    Document   : InsertarActividaElicitacion
-    Created on : 19/11/2016, 09:26:16 AM
+    Document   : ActualizarAnalai
+    Created on : 19/11/2016, 09:58:07 PM
     Author     : freddy
 --%>
 
@@ -11,20 +11,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Insertar</title>
+        <title>Actualizar</title>
     </head>
     <body>
         <%
-            String modelo ;
+            String modelo;
             String fechaAsignado;
-            int responsable,idRegistroAnalisi;
+            int responsable;
             String proyecto = variablesGlobales.getProyecto();
             CRUD_Actividad crud = new CRUD_Actividad();
             modelo = request.getParameter("modelo");
              fechaAsignado = request.getParameter("fechaAsignado");
-              idRegistroAnalisi = variablesGlobales.getIdRegistroAnalisi();
+             
               responsable = Integer.parseInt(request.getParameter("responsable"));
-            boolean registro = crud.actualizarActividadAnalisis(idRegistroAnalisi, modelo, responsable, proyecto, fechaAsignado);
+            boolean registro = crud.actualizarActividadAnalisis(variablesGlobales.getIdRegistroAnalisi(),
+                    modelo, responsable, proyecto, fechaAsignado);
             if (registro) {
                 out.print("Registro exitoso");
                 out.print("<hr>");

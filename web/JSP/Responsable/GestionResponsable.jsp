@@ -4,27 +4,22 @@
     Author     : Ingeniero Jean C
 --%>
 
+<%@page import="persistencia.CRUD_Responsable"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="persistencia.CRUD"%>
 <%@page import="ComponentesBD.variablesGlobales"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%!
-    String nombreProyecto = "";
-    String cliente = "";
-    String direccion = "";
-    String telefono = "";
-    String correo = "";
-    String fechaInicio = "";
-    String fechaFin = "";
-    boolean finalizado;
+    String opciones = "";
+    CRUD_Responsable crud = new CRUD_Responsable();
 %>
 <script type="text/javascript">
     function enviar(destino) {
         document.formulario.action = destino;
         document.formulario.submit();
         // document.formulario.submit();
-      
+
     }
 
 
@@ -60,7 +55,7 @@
             <div class="layoutIzquierda">
                 <a  href="../fases/GestionarFase.jsp" > <h3  class="pestaña1"><center>Inicio</center></h3> </a>
                 <a  href="RegistrarResponsable.jsp" > <h3  class="pestaña1"><center>Registrar Responsable</center></h3> </a>
-             
+
 
 
 
@@ -71,48 +66,76 @@
             <div class="layoutDerecha"></div>
 
             <div class="contenido">
-                <%
-                  //  nombreProyecto = request.getParameter("idProyecto");
-                   // variablesGlobales.setNombreProyecto(nombreProyecto);
-                    CRUD crud = new CRUD();
-                    ResultSet rs = crud.consultaProyecto(nombreProyecto);
 
-                    if (rs.next()) {
-                        cliente = rs.getString(2);
-                        direccion = rs.getString(3);
-                        telefono = rs.getString(4);
-                        correo = rs.getString(5);
-                        fechaInicio = rs.getString(6);
-                        fechaFin = rs.getString(7);
-                        finalizado = rs.getBoolean(8);
-                    }
-                %>
-                
-                
+
+
                 <h1 class="contenidoh1"> Gestionar Responsables</h1> </br> </br> </br>
 
-                
-                <center> <label for="fase"><b>Gestionar Responsable.</b></label><br>
-                <select name="fase">
-                    <option value="Elicitacion" selected="selected">Elicitacion</option>
-                    <option value="Analisis" selected="selectd">Analis</option>
-                    <option value="Especificacion" selected="selectd">Especificacio</option>
-                    
-                </select>
-                    <input type="submit" value="Cargar"><br><br><br><hr>
-            </center>  
+
 
                 <table>
-                    <tr> <th>Nombre Responsable</th> <th>Nombre Proyecto</th><th>Nombre Fase</th> </tr>
+                    <p>Responsables fase Elicitacion</p>
+                    <tr> <th>Responsables</th> <th>Cedula</th> </tr>
+                            <%
+                                opciones = "";
+                                ResultSet rs1 = crud.consultaResponsableFase("ELICITACION", variablesGlobales.getProyecto());
+                                while (rs1.next()) {
+                                    opciones = opciones + "<tr>"
+                                            + " <td>" + rs1.getString(2) + " " + rs1.getString(3) + "</td> "
+                                            + "<td><form action='eliminarResponsable.jsp' method='get'>"
+                                            + "<input class='izq'  type='text'  name='cedulaResponsables'value='"
+                                            + rs1.getString(1) + "'  ></input>"
+                                            + "<input type='submit' value=' Eliminar '>"
+                                            + "</form> </td>"
+                                            + " </tr>";
+                                }
+                            %>
+                            <%= opciones%>
 
-                    <tr>
-                        <td>1</td> 
-                        <td>1</td>
-                        <td>1+ botton</td>
-                       
-                    </tr>
 
-                     
+
+                </table>
+                <table>
+                    <p>Responsables fase Analisis</p>
+                    <tr> <th>Responsables</th> <th>Cedula</th> </tr>
+                            <%
+                                opciones = "";
+                                ResultSet rs2 = crud.consultaResponsableFase("ANALISIS", variablesGlobales.getProyecto());
+                                while (rs2.next()) {
+                                    opciones = opciones + "<tr>"
+                                            + " <td>" + rs2.getString(2) + " " + rs2.getString(3) + "</td> "
+                                            + "<td><form action='eliminarResponsableAnalis.jsp' method='get'>"
+                                            + "<input class='izq'  type='text'  name='cedulaResponsables'value='"
+                                            + rs2.getString(1) + "'  ></input>"
+                                            + "<input type='submit' value=' Eliminar '>"
+                                            + "</form> </td>"
+                                            + " </tr>";
+                                }
+                            %>
+                            <%= opciones%>
+
+                </table>
+                <table>
+                    <p>Responsables fase Espesisficacion</p>
+                    <tr> <th>Responsables</th> <th>Cedula</th> </tr>
+                            <%
+                                opciones = "";
+                                ResultSet rs3 = crud.consultaResponsableFase("ESPESIFICACION", variablesGlobales.getProyecto());
+                                while (rs3.next()) {
+                                    opciones = opciones + "<tr>"
+                                            + " <td>" + rs3.getString(2) + " " + rs3.getString(3) + "</td> "
+                                            + "<td><form action='eliminarResponsableEspesificacion.jsp' method='get'>"
+                                            + "<input class='izq'  type='text'  name='cedulaResponsables'value='"
+                                            + rs3.getString(1) + "'  ></input>"
+                                            + "<input type='submit' value=' Eliminar '>"
+                                            + "</form> </td>"
+                                            + " </tr>";
+                                }
+                            %>
+                            <%= opciones%>
+
+
+
                 </table>
 
 

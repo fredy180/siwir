@@ -51,7 +51,7 @@
                         <td><select name="nombreFase" class="der"  >'>
                             <option value="ELICITACION" selected> ELICITACION</option>";
                              <option value="ESPESIFICACION"  >ESPESIFICACION</option>";
-                            <option value="ANALISIS"  >ANALAIS</option>";
+                            <option value="ANALISIS"  >ANALISIS</option>";
                         </select>
                     </p>
                       <br>
